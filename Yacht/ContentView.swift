@@ -12,6 +12,7 @@ struct ContentView: View {
     
     var body: some View {
         VStack {
+            MessageView(viewModel: viewModel)
             ScoreView(viewModel: viewModel)
             DicesFieldView(viewModel: viewModel)
             RollButton(viewModel: viewModel)

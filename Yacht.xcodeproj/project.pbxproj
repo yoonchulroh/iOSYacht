@@ -23,6 +23,7 @@
 		D89E667C2A10A74E0041C7C7 /* ScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D89E667B2A10A74E0041C7C7 /* ScoreView.swift */; };
 		D89E667E2A10AEAB0041C7C7 /* CalculateScore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D89E667D2A10AEAB0041C7C7 /* CalculateScore.swift */; };
 		D8E353442A16F9F700E394A8 /* ScoreTypeDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E353432A16F9F700E394A8 /* ScoreTypeDictionary.swift */; };
+		D8E353462A172AA100E394A8 /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E353452A172AA100E394A8 /* MessageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		D89E667B2A10A74E0041C7C7 /* ScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreView.swift; sourceTree = "<group>"; };
 		D89E667D2A10AEAB0041C7C7 /* CalculateScore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculateScore.swift; sourceTree = "<group>"; };
 		D8E353432A16F9F700E394A8 /* ScoreTypeDictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreTypeDictionary.swift; sourceTree = "<group>"; };
+		D8E353452A172AA100E394A8 /* MessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +122,7 @@
 				D89E667D2A10AEAB0041C7C7 /* CalculateScore.swift */,
 				D89E666F2A1075950041C7C7 /* DiceData.swift */,
 				D89E66792A10A5F20041C7C7 /* ScoreTable.swift */,
+				D8E353452A172AA100E394A8 /* MessageView.swift */,
 				D89E667B2A10A74E0041C7C7 /* ScoreView.swift */,
 				D89E66752A1082650041C7C7 /* DicesFieldView.swift */,
 				D89E66732A107EAA0041C7C7 /* DiceView.swift */,
@@ -286,6 +289,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D8E353462A172AA100E394A8 /* MessageView.swift in Sources */,
 				D8E353442A16F9F700E394A8 /* ScoreTypeDictionary.swift in Sources */,
 				D89E66782A109EF60041C7C7 /* RollButton.swift in Sources */,
 				D89E66472A10710D0041C7C7 /* ContentView.swift in Sources */,

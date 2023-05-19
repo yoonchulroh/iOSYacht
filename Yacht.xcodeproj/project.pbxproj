@@ -1,0 +1,653 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D89E66452A10710D0041C7C7 /* YachtApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D89E66442A10710D0041C7C7 /* YachtApp.swift */; };
+		D89E66472A10710D0041C7C7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D89E66462A10710D0041C7C7 /* ContentView.swift */; };
+		D89E66492A10710E0041C7C7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D89E66482A10710E0041C7C7 /* Assets.xcassets */; };
+		D89E664D2A10710E0041C7C7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D89E664C2A10710E0041C7C7 /* Preview Assets.xcassets */; };
+		D89E66572A10710F0041C7C7 /* YachtTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D89E66562A10710F0041C7C7 /* YachtTests.swift */; };
+		D89E66612A10710F0041C7C7 /* YachtUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D89E66602A10710F0041C7C7 /* YachtUITests.swift */; };
+		D89E66632A10710F0041C7C7 /* YachtUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D89E66622A10710F0041C7C7 /* YachtUITestsLaunchTests.swift */; };
+		D89E66702A1075950041C7C7 /* DiceData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D89E666F2A1075950041C7C7 /* DiceData.swift */; };
+		D89E66722A1078520041C7C7 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D89E66712A1078520041C7C7 /* ViewModel.swift */; };
+		D89E66742A107EAA0041C7C7 /* DiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D89E66732A107EAA0041C7C7 /* DiceView.swift */; };
+		D89E66762A1082650041C7C7 /* DicesFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D89E66752A1082650041C7C7 /* DicesFieldView.swift */; };
+		D89E66782A109EF60041C7C7 /* RollButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D89E66772A109EF60041C7C7 /* RollButton.swift */; };
+		D89E667A2A10A5F20041C7C7 /* ScoreTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D89E66792A10A5F20041C7C7 /* ScoreTable.swift */; };
+		D89E667C2A10A74E0041C7C7 /* ScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D89E667B2A10A74E0041C7C7 /* ScoreView.swift */; };
+		D89E667E2A10AEAB0041C7C7 /* CalculateScore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D89E667D2A10AEAB0041C7C7 /* CalculateScore.swift */; };
+		D8E353442A16F9F700E394A8 /* ScoreTypeDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E353432A16F9F700E394A8 /* ScoreTypeDictionary.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D89E66532A10710F0041C7C7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D89E66392A10710D0041C7C7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D89E66402A10710D0041C7C7;
+			remoteInfo = Yacht;
+		};
+		D89E665D2A10710F0041C7C7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D89E66392A10710D0041C7C7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D89E66402A10710D0041C7C7;
+			remoteInfo = Yacht;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		D89E66412A10710D0041C7C7 /* Yacht.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Yacht.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D89E66442A10710D0041C7C7 /* YachtApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YachtApp.swift; sourceTree = "<group>"; };
+		D89E66462A10710D0041C7C7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		D89E66482A10710E0041C7C7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D89E664A2A10710E0041C7C7 /* Yacht.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Yacht.entitlements; sourceTree = "<group>"; };
+		D89E664C2A10710E0041C7C7 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		D89E66522A10710F0041C7C7 /* YachtTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YachtTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D89E66562A10710F0041C7C7 /* YachtTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YachtTests.swift; sourceTree = "<group>"; };
+		D89E665C2A10710F0041C7C7 /* YachtUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YachtUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D89E66602A10710F0041C7C7 /* YachtUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YachtUITests.swift; sourceTree = "<group>"; };
+		D89E66622A10710F0041C7C7 /* YachtUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YachtUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		D89E666F2A1075950041C7C7 /* DiceData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceData.swift; sourceTree = "<group>"; };
+		D89E66712A1078520041C7C7 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		D89E66732A107EAA0041C7C7 /* DiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceView.swift; sourceTree = "<group>"; };
+		D89E66752A1082650041C7C7 /* DicesFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DicesFieldView.swift; sourceTree = "<group>"; };
+		D89E66772A109EF60041C7C7 /* RollButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RollButton.swift; sourceTree = "<group>"; };
+		D89E66792A10A5F20041C7C7 /* ScoreTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreTable.swift; sourceTree = "<group>"; };
+		D89E667B2A10A74E0041C7C7 /* ScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreView.swift; sourceTree = "<group>"; };
+		D89E667D2A10AEAB0041C7C7 /* CalculateScore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculateScore.swift; sourceTree = "<group>"; };
+		D8E353432A16F9F700E394A8 /* ScoreTypeDictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreTypeDictionary.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D89E663E2A10710D0041C7C7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D89E664F2A10710F0041C7C7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D89E66592A10710F0041C7C7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D89E66382A10710D0041C7C7 = {
+			isa = PBXGroup;
+			children = (
+				D89E66432A10710D0041C7C7 /* Yacht */,
+				D89E66552A10710F0041C7C7 /* YachtTests */,
+				D89E665F2A10710F0041C7C7 /* YachtUITests */,
+				D89E66422A10710D0041C7C7 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D89E66422A10710D0041C7C7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D89E66412A10710D0041C7C7 /* Yacht.app */,
+				D89E66522A10710F0041C7C7 /* YachtTests.xctest */,
+				D89E665C2A10710F0041C7C7 /* YachtUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D89E66432A10710D0041C7C7 /* Yacht */ = {
+			isa = PBXGroup;
+			children = (
+				D89E66442A10710D0041C7C7 /* YachtApp.swift */,
+				D89E66462A10710D0041C7C7 /* ContentView.swift */,
+				D89E66712A1078520041C7C7 /* ViewModel.swift */,
+				D8E353432A16F9F700E394A8 /* ScoreTypeDictionary.swift */,
+				D89E667D2A10AEAB0041C7C7 /* CalculateScore.swift */,
+				D89E666F2A1075950041C7C7 /* DiceData.swift */,
+				D89E66792A10A5F20041C7C7 /* ScoreTable.swift */,
+				D89E667B2A10A74E0041C7C7 /* ScoreView.swift */,
+				D89E66752A1082650041C7C7 /* DicesFieldView.swift */,
+				D89E66732A107EAA0041C7C7 /* DiceView.swift */,
+				D89E66772A109EF60041C7C7 /* RollButton.swift */,
+				D89E66482A10710E0041C7C7 /* Assets.xcassets */,
+				D89E664A2A10710E0041C7C7 /* Yacht.entitlements */,
+				D89E664B2A10710E0041C7C7 /* Preview Content */,
+			);
+			path = Yacht;
+			sourceTree = "<group>";
+		};
+		D89E664B2A10710E0041C7C7 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				D89E664C2A10710E0041C7C7 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		D89E66552A10710F0041C7C7 /* YachtTests */ = {
+			isa = PBXGroup;
+			children = (
+				D89E66562A10710F0041C7C7 /* YachtTests.swift */,
+			);
+			path = YachtTests;
+			sourceTree = "<group>";
+		};
+		D89E665F2A10710F0041C7C7 /* YachtUITests */ = {
+			isa = PBXGroup;
+			children = (
+				D89E66602A10710F0041C7C7 /* YachtUITests.swift */,
+				D89E66622A10710F0041C7C7 /* YachtUITestsLaunchTests.swift */,
+			);
+			path = YachtUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D89E66402A10710D0041C7C7 /* Yacht */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D89E66662A10710F0041C7C7 /* Build configuration list for PBXNativeTarget "Yacht" */;
+			buildPhases = (
+				D89E663D2A10710D0041C7C7 /* Sources */,
+				D89E663E2A10710D0041C7C7 /* Frameworks */,
+				D89E663F2A10710D0041C7C7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Yacht;
+			productName = Yacht;
+			productReference = D89E66412A10710D0041C7C7 /* Yacht.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D89E66512A10710F0041C7C7 /* YachtTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D89E66692A10710F0041C7C7 /* Build configuration list for PBXNativeTarget "YachtTests" */;
+			buildPhases = (
+				D89E664E2A10710F0041C7C7 /* Sources */,
+				D89E664F2A10710F0041C7C7 /* Frameworks */,
+				D89E66502A10710F0041C7C7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D89E66542A10710F0041C7C7 /* PBXTargetDependency */,
+			);
+			name = YachtTests;
+			productName = YachtTests;
+			productReference = D89E66522A10710F0041C7C7 /* YachtTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		D89E665B2A10710F0041C7C7 /* YachtUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D89E666C2A10710F0041C7C7 /* Build configuration list for PBXNativeTarget "YachtUITests" */;
+			buildPhases = (
+				D89E66582A10710F0041C7C7 /* Sources */,
+				D89E66592A10710F0041C7C7 /* Frameworks */,
+				D89E665A2A10710F0041C7C7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D89E665E2A10710F0041C7C7 /* PBXTargetDependency */,
+			);
+			name = YachtUITests;
+			productName = YachtUITests;
+			productReference = D89E665C2A10710F0041C7C7 /* YachtUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D89E66392A10710D0041C7C7 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1430;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					D89E66402A10710D0041C7C7 = {
+						CreatedOnToolsVersion = 14.3;
+					};
+					D89E66512A10710F0041C7C7 = {
+						CreatedOnToolsVersion = 14.3;
+						TestTargetID = D89E66402A10710D0041C7C7;
+					};
+					D89E665B2A10710F0041C7C7 = {
+						CreatedOnToolsVersion = 14.3;
+						TestTargetID = D89E66402A10710D0041C7C7;
+					};
+				};
+			};
+			buildConfigurationList = D89E663C2A10710D0041C7C7 /* Build configuration list for PBXProject "Yacht" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D89E66382A10710D0041C7C7;
+			productRefGroup = D89E66422A10710D0041C7C7 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D89E66402A10710D0041C7C7 /* Yacht */,
+				D89E66512A10710F0041C7C7 /* YachtTests */,
+				D89E665B2A10710F0041C7C7 /* YachtUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D89E663F2A10710D0041C7C7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D89E664D2A10710E0041C7C7 /* Preview Assets.xcassets in Resources */,
+				D89E66492A10710E0041C7C7 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D89E66502A10710F0041C7C7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D89E665A2A10710F0041C7C7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D89E663D2A10710D0041C7C7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D8E353442A16F9F700E394A8 /* ScoreTypeDictionary.swift in Sources */,
+				D89E66782A109EF60041C7C7 /* RollButton.swift in Sources */,
+				D89E66472A10710D0041C7C7 /* ContentView.swift in Sources */,
+				D89E667C2A10A74E0041C7C7 /* ScoreView.swift in Sources */,
+				D89E66742A107EAA0041C7C7 /* DiceView.swift in Sources */,
+				D89E66762A1082650041C7C7 /* DicesFieldView.swift in Sources */,
+				D89E66702A1075950041C7C7 /* DiceData.swift in Sources */,
+				D89E66722A1078520041C7C7 /* ViewModel.swift in Sources */,
+				D89E66452A10710D0041C7C7 /* YachtApp.swift in Sources */,
+				D89E667A2A10A5F20041C7C7 /* ScoreTable.swift in Sources */,
+				D89E667E2A10AEAB0041C7C7 /* CalculateScore.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D89E664E2A10710F0041C7C7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D89E66572A10710F0041C7C7 /* YachtTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D89E66582A10710F0041C7C7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D89E66632A10710F0041C7C7 /* YachtUITestsLaunchTests.swift in Sources */,
+				D89E66612A10710F0041C7C7 /* YachtUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D89E66542A10710F0041C7C7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D89E66402A10710D0041C7C7 /* Yacht */;
+			targetProxy = D89E66532A10710F0041C7C7 /* PBXContainerItemProxy */;
+		};
+		D89E665E2A10710F0041C7C7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D89E66402A10710D0041C7C7 /* Yacht */;
+			targetProxy = D89E665D2A10710F0041C7C7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		D89E66642A10710F0041C7C7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		D89E66652A10710F0041C7C7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		D89E66672A10710F0041C7C7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Yacht/Yacht.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Yacht/Preview Content\"";
+				DEVELOPMENT_TEAM = 7KDG5X3PQ4;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 13.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = yoonchul.Yacht;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D89E66682A10710F0041C7C7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Yacht/Yacht.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Yacht/Preview Content\"";
+				DEVELOPMENT_TEAM = 7KDG5X3PQ4;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 13.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = yoonchul.Yacht;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		D89E666A2A10710F0041C7C7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7KDG5X3PQ4;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MACOSX_DEPLOYMENT_TARGET = 13.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = yoonchul.YachtTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Yacht.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Yacht";
+			};
+			name = Debug;
+		};
+		D89E666B2A10710F0041C7C7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7KDG5X3PQ4;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MACOSX_DEPLOYMENT_TARGET = 13.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = yoonchul.YachtTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Yacht.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Yacht";
+			};
+			name = Release;
+		};
+		D89E666D2A10710F0041C7C7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7KDG5X3PQ4;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MACOSX_DEPLOYMENT_TARGET = 13.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = yoonchul.YachtUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Yacht;
+			};
+			name = Debug;
+		};
+		D89E666E2A10710F0041C7C7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7KDG5X3PQ4;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MACOSX_DEPLOYMENT_TARGET = 13.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = yoonchul.YachtUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Yacht;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D89E663C2A10710D0041C7C7 /* Build configuration list for PBXProject "Yacht" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D89E66642A10710F0041C7C7 /* Debug */,
+				D89E66652A10710F0041C7C7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D89E66662A10710F0041C7C7 /* Build configuration list for PBXNativeTarget "Yacht" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D89E66672A10710F0041C7C7 /* Debug */,
+				D89E66682A10710F0041C7C7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D89E66692A10710F0041C7C7 /* Build configuration list for PBXNativeTarget "YachtTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D89E666A2A10710F0041C7C7 /* Debug */,
+				D89E666B2A10710F0041C7C7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D89E666C2A10710F0041C7C7 /* Build configuration list for PBXNativeTarget "YachtUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D89E666D2A10710F0041C7C7 /* Debug */,
+				D89E666E2A10710F0041C7C7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D89E66392A10710D0041C7C7 /* Project object */;
+}

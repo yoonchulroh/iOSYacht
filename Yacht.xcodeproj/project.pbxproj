@@ -24,6 +24,8 @@
 		D89E667E2A10AEAB0041C7C7 /* CalculateScore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D89E667D2A10AEAB0041C7C7 /* CalculateScore.swift */; };
 		D8E353442A16F9F700E394A8 /* ScoreTypeDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E353432A16F9F700E394A8 /* ScoreTypeDictionary.swift */; };
 		D8E353462A172AA100E394A8 /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E353452A172AA100E394A8 /* MessageView.swift */; };
+		D8E3534D2A17385000E394A8 /* DelayTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E3534C2A17385000E394A8 /* DelayTime.swift */; };
+		D8E3534F2A17389B00E394A8 /* BotPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E3534E2A17389B00E394A8 /* BotPlayer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +67,8 @@
 		D89E667D2A10AEAB0041C7C7 /* CalculateScore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculateScore.swift; sourceTree = "<group>"; };
 		D8E353432A16F9F700E394A8 /* ScoreTypeDictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreTypeDictionary.swift; sourceTree = "<group>"; };
 		D8E353452A172AA100E394A8 /* MessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
+		D8E3534C2A17385000E394A8 /* DelayTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelayTime.swift; sourceTree = "<group>"; };
+		D8E3534E2A17389B00E394A8 /* BotPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BotPlayer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,7 +122,7 @@
 				D8E3534A2A17339A00E394A8 /* Foundations */,
 				D8E353482A17335A00E394A8 /* Models */,
 				D8E353472A17333300E394A8 /* Views */,
-				D8E3534B2A17343500E394A8 /* Data */,
+				D8E3534B2A17343500E394A8 /* Complementaries */,
 				D89E664A2A10710E0041C7C7 /* Yacht.entitlements */,
 				D8E353492A17337400E394A8 /* Deprecated */,
 				D89E664B2A10710E0041C7C7 /* Preview Content */,
@@ -175,6 +179,7 @@
 		D8E353492A17337400E394A8 /* Deprecated */ = {
 			isa = PBXGroup;
 			children = (
+				D8E3534C2A17385000E394A8 /* DelayTime.swift */,
 				D89E667D2A10AEAB0041C7C7 /* CalculateScore.swift */,
 			);
 			path = Deprecated;
@@ -186,17 +191,18 @@
 				D89E66442A10710D0041C7C7 /* YachtApp.swift */,
 				D89E66462A10710D0041C7C7 /* ContentView.swift */,
 				D89E66712A1078520041C7C7 /* ViewModel.swift */,
+				D8E3534E2A17389B00E394A8 /* BotPlayer.swift */,
 			);
 			path = Foundations;
 			sourceTree = "<group>";
 		};
-		D8E3534B2A17343500E394A8 /* Data */ = {
+		D8E3534B2A17343500E394A8 /* Complementaries */ = {
 			isa = PBXGroup;
 			children = (
 				D8E353432A16F9F700E394A8 /* ScoreTypeDictionary.swift */,
 				D89E66482A10710E0041C7C7 /* Assets.xcassets */,
 			);
-			path = Data;
+			path = Complementaries;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -333,8 +339,10 @@
 				D8E353442A16F9F700E394A8 /* ScoreTypeDictionary.swift in Sources */,
 				D89E66782A109EF60041C7C7 /* RollButton.swift in Sources */,
 				D89E66472A10710D0041C7C7 /* ContentView.swift in Sources */,
+				D8E3534F2A17389B00E394A8 /* BotPlayer.swift in Sources */,
 				D89E667C2A10A74E0041C7C7 /* ScoreView.swift in Sources */,
 				D89E66742A107EAA0041C7C7 /* DiceView.swift in Sources */,
+				D8E3534D2A17385000E394A8 /* DelayTime.swift in Sources */,
 				D89E66762A1082650041C7C7 /* DicesFieldView.swift in Sources */,
 				D89E66702A1075950041C7C7 /* DiceData.swift in Sources */,
 				D89E66722A1078520041C7C7 /* ViewModel.swift in Sources */,

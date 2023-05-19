@@ -9,20 +9,42 @@ import SwiftUI
 
 struct ContentView: View {
     @ObservedObject var viewModel: ViewModel
+    @ObservedObject var botPlayer: BotPlayer
+    
+    init(viewModel: ViewModel, botPlayer: BotPlayer) {
+        self.viewModel = viewModel
+        self.botPlayer = botPlayer
+        
+        self.viewModel.setBotPlayer(botPlayer: botPlayer)
+        self.botPlayer.setViewModel(viewModel: viewModel)
+    }
     
     var body: some View {
-        VStack {
-            MessageView(viewModel: viewModel)
-            ScoreView(viewModel: viewModel)
-            DicesFieldView(viewModel: viewModel)
-            RollButton(viewModel: viewModel)
+        if UIDevice.current.userInterfaceIdiom == .pad && UIDeviceOrientation.unknown.isLandscape {
+            HStack {
+                ScoreView(viewModel: viewModel)
+                VStack {
+                    MessageView(viewModel: viewModel)
+                    DicesFieldView(viewModel: viewModel)
+                    RollButton(viewModel: viewModel)
+                }
+            }
+        } else {
+            VStack {
+                ScoreView(viewModel: viewModel)
+                MessageView(viewModel: viewModel)
+                DicesFieldView(viewModel: viewModel)
+                RollButton(viewModel: viewModel)
+            }
         }
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
-    static let game = ViewModel()
+    static var game: ViewModel = ViewModel()
+    static var botPlayer: BotPlayer = BotPlayer(playerID: 2)
+    
     static var previews: some View {
-        ContentView(viewModel: game)
+        ContentView(viewModel: game, botPlayer: botPlayer)
     }
 }

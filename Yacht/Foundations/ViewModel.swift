@@ -10,18 +10,25 @@ import Foundation
 class ViewModel: ObservableObject {
     @Published private(set) var dicePart: DiceField
     @Published private(set) var playerScores: [ScoreTable]
+    @Published private(set) var isBot: [Bool]
     @Published private(set) var remainingRolls: Int
     @Published private(set) var currentTurn: Int
     @Published private(set) var userMessage: String
+    @Published private(set) var botPlayer: BotPlayer?
     
     init() {
         dicePart = DiceField(5)
         playerScores = []
+        isBot = [false, false]
         remainingRolls = 3
         currentTurn = 1
         userMessage = "Starting the game..."
         playerScores.append(ScoreTable())
         playerScores.append(ScoreTable())
+    }
+    
+    func setBotPlayer(botPlayer: BotPlayer) {
+        self.botPlayer = botPlayer
     }
     
     func roll() {
@@ -40,15 +47,25 @@ class ViewModel: ObservableObject {
         dicePart.dices[diceIndex].locked.toggle()
     }
     
-    func calculatePlayerScore(_ scoreType: String, _ playerID: Int) {
+    func addToScore(_ scoreType: String, _ playerID: Int) {
         objectWillChange.send()
-        playerScores[playerID - 1].score[scoreTypeDictionary[scoreType]!] = dicePart.calculateScore(scoreType)
-        playerScores[playerID - 1].scoreLocked[scoreTypeDictionary[scoreType]!] = true
-        playerScores[playerID - 1].calculateSecondaryScore(scoreType, dicePart)
+        if !playerScores[playerID - 1].scoreLocked[scoreTypeDictionary[scoreType]!] {
+            playerScores[playerID - 1].score[scoreTypeDictionary[scoreType]!] = dicePart.calculateScore(scoreType)
+            playerScores[playerID - 1].scoreLocked[scoreTypeDictionary[scoreType]!] = true
+            playerScores[playerID - 1].calculateSecondaryScore(scoreType, dicePart)
+            passTurn()
+        }
+    }
+    
+    func passTurn() {
+        objectWillChange.send()
         dicePart.reset()
         remainingRolls = 3
         currentTurn = 3 - currentTurn
         userMessage = "It is now Player " + String(currentTurn) + "'s turn."
+        if isBot[currentTurn - 1] {
+            botPlayer!.playTurn()
+        }
     }
     
     func resetScore() {

@@ -12,6 +12,6 @@ struct MessageView: View {
     
     var body: some View {
         Text(viewModel.userMessage)
-            .padding(.top)
+            .padding(.bottom)
     }
 }

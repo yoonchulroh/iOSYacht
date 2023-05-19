@@ -21,7 +21,7 @@ struct RollButton: View {
         .aspectRatio(4, contentMode: .fit)
         .padding(.all)
         .onTapGesture {
-            if viewModel.remainingRolls > 0 {
+            if viewModel.remainingRolls > 0 && !viewModel.isBot[viewModel.currentTurn - 1] {
                 viewModel.roll()
             }
         }

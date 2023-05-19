@@ -23,3 +23,20 @@ var scoreTypeDictionary: [String: Int] = [
     "largeStraight": 11,
     "yacht": 12
 ]
+
+var reversedScoreTypeDictionary: [Int: String] = [
+    1: "1",
+    2: "2",
+    3: "3",
+    4: "4",
+    5: "5",
+    6: "6",
+    0: "bonus",
+    
+    7: "choice",
+    8: "fullHouse",
+    9: "fourOfKind",
+    10: "smallStraight",
+    11: "largeStraight",
+    12: "yacht"
+]

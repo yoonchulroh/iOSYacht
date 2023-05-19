@@ -8,7 +8,6 @@
 import Foundation
 
 class ScoreTable {
-    
     var score: [Int] = []
     var scoreLocked: [Bool] = []
     
@@ -21,7 +20,7 @@ class ScoreTable {
     
     var totalScore = 0
     
-    func calculateSecondaryScore(_ scoreType: String, _ dicePart: DiceData) {
+    func calculateSecondaryScore(_ scoreType: String, _ dicePart: DiceField) {
         var numberScoreTotal = 0
         for i in 1 ... 6 {
             numberScoreTotal += self.score[i]

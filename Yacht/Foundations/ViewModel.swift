@@ -8,14 +8,14 @@
 import Foundation
 
 class ViewModel: ObservableObject {
-    @Published private(set) var dicePart: DiceData
+    @Published private(set) var dicePart: DiceField
     @Published private(set) var playerScores: [ScoreTable]
     @Published private(set) var remainingRolls: Int
     @Published private(set) var currentTurn: Int
     @Published private(set) var userMessage: String
     
     init() {
-        dicePart = DiceData(5)
+        dicePart = DiceField(5)
         playerScores = []
         remainingRolls = 3
         currentTurn = 1

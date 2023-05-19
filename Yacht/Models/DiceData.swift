@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct DiceData {
+struct DiceField {
     var dices: Array<Dice> = []
     
     class Dice {

@@ -115,20 +115,12 @@
 		D89E66432A10710D0041C7C7 /* Yacht */ = {
 			isa = PBXGroup;
 			children = (
-				D89E66442A10710D0041C7C7 /* YachtApp.swift */,
-				D89E66462A10710D0041C7C7 /* ContentView.swift */,
-				D89E66712A1078520041C7C7 /* ViewModel.swift */,
-				D8E353432A16F9F700E394A8 /* ScoreTypeDictionary.swift */,
-				D89E667D2A10AEAB0041C7C7 /* CalculateScore.swift */,
-				D89E666F2A1075950041C7C7 /* DiceData.swift */,
-				D89E66792A10A5F20041C7C7 /* ScoreTable.swift */,
-				D8E353452A172AA100E394A8 /* MessageView.swift */,
-				D89E667B2A10A74E0041C7C7 /* ScoreView.swift */,
-				D89E66752A1082650041C7C7 /* DicesFieldView.swift */,
-				D89E66732A107EAA0041C7C7 /* DiceView.swift */,
-				D89E66772A109EF60041C7C7 /* RollButton.swift */,
-				D89E66482A10710E0041C7C7 /* Assets.xcassets */,
+				D8E3534A2A17339A00E394A8 /* Foundations */,
+				D8E353482A17335A00E394A8 /* Models */,
+				D8E353472A17333300E394A8 /* Views */,
+				D8E3534B2A17343500E394A8 /* Data */,
 				D89E664A2A10710E0041C7C7 /* Yacht.entitlements */,
+				D8E353492A17337400E394A8 /* Deprecated */,
 				D89E664B2A10710E0041C7C7 /* Preview Content */,
 			);
 			path = Yacht;
@@ -157,6 +149,54 @@
 				D89E66622A10710F0041C7C7 /* YachtUITestsLaunchTests.swift */,
 			);
 			path = YachtUITests;
+			sourceTree = "<group>";
+		};
+		D8E353472A17333300E394A8 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D89E66772A109EF60041C7C7 /* RollButton.swift */,
+				D8E353452A172AA100E394A8 /* MessageView.swift */,
+				D89E667B2A10A74E0041C7C7 /* ScoreView.swift */,
+				D89E66752A1082650041C7C7 /* DicesFieldView.swift */,
+				D89E66732A107EAA0041C7C7 /* DiceView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		D8E353482A17335A00E394A8 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D89E666F2A1075950041C7C7 /* DiceData.swift */,
+				D89E66792A10A5F20041C7C7 /* ScoreTable.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		D8E353492A17337400E394A8 /* Deprecated */ = {
+			isa = PBXGroup;
+			children = (
+				D89E667D2A10AEAB0041C7C7 /* CalculateScore.swift */,
+			);
+			path = Deprecated;
+			sourceTree = "<group>";
+		};
+		D8E3534A2A17339A00E394A8 /* Foundations */ = {
+			isa = PBXGroup;
+			children = (
+				D89E66442A10710D0041C7C7 /* YachtApp.swift */,
+				D89E66462A10710D0041C7C7 /* ContentView.swift */,
+				D89E66712A1078520041C7C7 /* ViewModel.swift */,
+			);
+			path = Foundations;
+			sourceTree = "<group>";
+		};
+		D8E3534B2A17343500E394A8 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				D8E353432A16F9F700E394A8 /* ScoreTypeDictionary.swift */,
+				D89E66482A10710E0041C7C7 /* Assets.xcassets */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

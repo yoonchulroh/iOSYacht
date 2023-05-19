@@ -21,9 +21,7 @@ class ScoreTable {
     
     var totalScore = 0
     
-    func calculateScore(_ scoreType: String, _ dicePart: DiceData) {
-        self.score[scoreTypeDictionary[scoreType]!] = Yacht.calculateScore(scoreType: scoreType, dicePart: dicePart)
-        self.scoreLocked[scoreTypeDictionary[scoreType]!] = true
+    func calculateSecondaryScore(_ scoreType: String, _ dicePart: DiceData) {
         var numberScoreTotal = 0
         for i in 1 ... 6 {
             numberScoreTotal += self.score[i]

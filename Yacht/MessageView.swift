@@ -11,6 +11,7 @@ struct MessageView: View {
     @ObservedObject var viewModel: ViewModel
     
     var body: some View {
-        Text("")
+        Text(viewModel.userMessage)
+            .padding(.top)
     }
 }

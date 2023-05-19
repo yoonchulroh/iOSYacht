@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+/*
 func calculateScore(scoreType: String, dicePart: DiceData) -> Int {
     var score: Int = 0
     var diceFaces: [Int] = [0,0,0,0,0,0]
@@ -93,3 +93,4 @@ func calculateScore(scoreType: String, dicePart: DiceData) -> Int {
     }
     return score
 }
+*/

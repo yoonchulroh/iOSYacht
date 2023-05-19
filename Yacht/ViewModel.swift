@@ -12,12 +12,14 @@ class ViewModel: ObservableObject {
     @Published private(set) var playerScores: [ScoreTable]
     @Published private(set) var remainingRolls: Int
     @Published private(set) var currentTurn: Int
+    @Published private(set) var userMessage: String
     
     init() {
         dicePart = DiceData(5)
         playerScores = []
         remainingRolls = 3
         currentTurn = 1
+        userMessage = "Starting the game..."
         playerScores.append(ScoreTable())
         playerScores.append(ScoreTable())
     }
@@ -26,6 +28,9 @@ class ViewModel: ObservableObject {
         objectWillChange.send()
         if remainingRolls > 0 {
             dicePart.rollDices()
+            if dicePart.checkUserMessage() != "" {
+                userMessage = dicePart.checkUserMessage()
+            }
             remainingRolls -= 1
         }
     }
@@ -37,10 +42,13 @@ class ViewModel: ObservableObject {
     
     func calculatePlayerScore(_ scoreType: String, _ playerID: Int) {
         objectWillChange.send()
-        playerScores[playerID - 1].calculateScore(scoreType, dicePart)
+        playerScores[playerID - 1].score[scoreTypeDictionary[scoreType]!] = dicePart.calculateScore(scoreType)
+        playerScores[playerID - 1].scoreLocked[scoreTypeDictionary[scoreType]!] = true
+        playerScores[playerID - 1].calculateSecondaryScore(scoreType, dicePart)
         dicePart.reset()
         remainingRolls = 3
         currentTurn = 3 - currentTurn
+        userMessage = "It is now Player " + String(currentTurn) + "'s turn."
     }
     
     func resetScore() {

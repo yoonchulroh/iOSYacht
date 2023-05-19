@@ -18,7 +18,7 @@ var scoreTypeDictionary: [String: Int] = [
     
     "choice": 7,
     "fullHouse": 8,
-    "fourInKind": 9,
+    "fourOfKind": 9,
     "smallStraight": 10,
     "largeStraight": 11,
     "yacht": 12

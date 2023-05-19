@@ -37,7 +37,7 @@ struct ScoreTableLeftLegend: View {
             }
                 
             VStack {
-                ForEach(["Four in Kind", "S. Straight", "L. Straight", "Yacht", "Total"], id: \.self) { label in
+                ForEach(["Four of Kind", "S. Straight", "L. Straight", "Yacht", "Total"], id: \.self) { label in
                     ScoreTableGrid(gridContent: label)
                 }
             }
@@ -72,7 +72,7 @@ struct playerScoreColumn: View {
             }
                 
             VStack {
-                ForEach(["fourInKind", "smallStraight", "largeStraight", "yacht"], id: \.self) { scoreType in
+                ForEach(["fourOfKind", "smallStraight", "largeStraight", "yacht"], id: \.self) { scoreType in
                     InteractiveScoreTableGrid(viewModel: viewModel, playerID: playerID, scoreType: scoreType)
                 }
                 
@@ -113,7 +113,7 @@ struct InteractiveScoreTableGrid: View {
         if self.locked {
             self.gridContent = String(viewModel.playerScores[playerID - 1].score[scoreTypeDictionary[scoreType]!])
         } else if viewModel.currentTurn == playerID && viewModel.remainingRolls < 3 {
-            self.gridContent = String(calculateScore(scoreType: scoreType, dicePart: viewModel.dicePart))
+            self.gridContent = String(viewModel.dicePart.calculateScore(self.scoreType))
         } else {
             self.gridContent = "0"
         }

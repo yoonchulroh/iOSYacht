@@ -19,7 +19,7 @@ class ViewModel: ObservableObject {
     init() {
         dicePart = DiceField(5)
         playerScores = []
-        isBot = [false, false]
+        isBot = [false, true]
         remainingRolls = 3
         currentTurn = 1
         userMessage = "Starting the game..."
@@ -37,6 +37,8 @@ class ViewModel: ObservableObject {
             dicePart.rollDices()
             if dicePart.checkUserMessage() != "" {
                 userMessage = dicePart.checkUserMessage()
+            } else {
+                userMessage = "It is now Player " + String(currentTurn) + "'s turn."
             }
             remainingRolls -= 1
         }

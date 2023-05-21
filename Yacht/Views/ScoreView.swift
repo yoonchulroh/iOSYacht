@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Foundation
+import UIKit
 
 struct ScoreView: View {
     @ObservedObject var viewModel: ViewModel

@@ -33,6 +33,14 @@ class ScoreTable {
         self.calculateTotalScore()
     }
     
+    func checkPickAvailable(_ scoreType: String) -> Bool {
+        if scoreLocked[scoreTypeDictionary[scoreType]!] {
+            return false
+        } else {
+            return true
+        }
+    }
+    
     func calculateTotalScore() {
         totalScore = 0
         for item in score {

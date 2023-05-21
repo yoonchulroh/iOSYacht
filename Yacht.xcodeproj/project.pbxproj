@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D822C4BB2A1989BF001BD2BA /* Priorities.swift in Sources */ = {isa = PBXBuildFile; fileRef = D822C4BA2A1989BF001BD2BA /* Priorities.swift */; };
+		D822C4C02A198B64001BD2BA /* Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D822C4BF2A198B64001BD2BA /* Actions.swift */; };
+		D822C4C22A199C0F001BD2BA /* DiceEvaluation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D822C4C12A199C0F001BD2BA /* DiceEvaluation.swift */; };
 		D89E66452A10710D0041C7C7 /* YachtApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D89E66442A10710D0041C7C7 /* YachtApp.swift */; };
 		D89E66472A10710D0041C7C7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D89E66462A10710D0041C7C7 /* ContentView.swift */; };
 		D89E66492A10710E0041C7C7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D89E66482A10710E0041C7C7 /* Assets.xcassets */; };
@@ -46,6 +49,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D822C4BA2A1989BF001BD2BA /* Priorities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Priorities.swift; sourceTree = "<group>"; };
+		D822C4BF2A198B64001BD2BA /* Actions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Actions.swift; sourceTree = "<group>"; };
+		D822C4C12A199C0F001BD2BA /* DiceEvaluation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceEvaluation.swift; sourceTree = "<group>"; };
 		D89E66412A10710D0041C7C7 /* Yacht.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Yacht.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D89E66442A10710D0041C7C7 /* YachtApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YachtApp.swift; sourceTree = "<group>"; };
 		D89E66462A10710D0041C7C7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -96,6 +102,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D822C4BC2A1989CA001BD2BA /* AI */ = {
+			isa = PBXGroup;
+			children = (
+				D822C4BA2A1989BF001BD2BA /* Priorities.swift */,
+				D822C4C12A199C0F001BD2BA /* DiceEvaluation.swift */,
+				D822C4BF2A198B64001BD2BA /* Actions.swift */,
+			);
+			path = AI;
+			sourceTree = "<group>";
+		};
 		D89E66382A10710D0041C7C7 = {
 			isa = PBXGroup;
 			children = (
@@ -121,6 +137,7 @@
 			children = (
 				D8E3534A2A17339A00E394A8 /* Foundations */,
 				D8E353482A17335A00E394A8 /* Models */,
+				D822C4BC2A1989CA001BD2BA /* AI */,
 				D8E353472A17333300E394A8 /* Views */,
 				D8E3534B2A17343500E394A8 /* Complementaries */,
 				D89E664A2A10710E0041C7C7 /* Yacht.entitlements */,
@@ -341,10 +358,13 @@
 				D89E66472A10710D0041C7C7 /* ContentView.swift in Sources */,
 				D8E3534F2A17389B00E394A8 /* BotPlayer.swift in Sources */,
 				D89E667C2A10A74E0041C7C7 /* ScoreView.swift in Sources */,
+				D822C4C02A198B64001BD2BA /* Actions.swift in Sources */,
 				D89E66742A107EAA0041C7C7 /* DiceView.swift in Sources */,
 				D8E3534D2A17385000E394A8 /* DelayTime.swift in Sources */,
 				D89E66762A1082650041C7C7 /* DicesFieldView.swift in Sources */,
+				D822C4BB2A1989BF001BD2BA /* Priorities.swift in Sources */,
 				D89E66702A1075950041C7C7 /* DiceData.swift in Sources */,
+				D822C4C22A199C0F001BD2BA /* DiceEvaluation.swift in Sources */,
 				D89E66722A1078520041C7C7 /* ViewModel.swift in Sources */,
 				D89E66452A10710D0041C7C7 /* YachtApp.swift in Sources */,
 				D89E667A2A10A5F20041C7C7 /* ScoreTable.swift in Sources */,

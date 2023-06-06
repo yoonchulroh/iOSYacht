@@ -19,7 +19,7 @@ class ViewModel: ObservableObject {
     init() {
         dicePart = DiceField(5)
         playerScores = []
-        isBot = [false, true]
+        isBot = [false, false]
         remainingRolls = 3
         currentTurn = 1
         userMessage = "Starting the game..."
@@ -51,7 +51,7 @@ class ViewModel: ObservableObject {
     
     func addToScore(_ scoreType: String, _ playerID: Int) {
         objectWillChange.send()
-        if !playerScores[playerID - 1].scoreLocked[scoreTypeDictionary[scoreType]!] {
+        if !playerScores[playerID - 1].scoreLocked[scoreTypeDictionary[scoreType]!] && remainingRolls < 3 {
             playerScores[playerID - 1].score[scoreTypeDictionary[scoreType]!] = dicePart.calculateScore(scoreType)
             playerScores[playerID - 1].scoreLocked[scoreTypeDictionary[scoreType]!] = true
             playerScores[playerID - 1].calculateSecondaryScore(scoreType, dicePart)

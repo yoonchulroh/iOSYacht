@@ -53,7 +53,7 @@ struct playerScoreColumn: View {
     var body: some View {
         VStack {
             VStack {
-                ScoreTableGrid(gridContent: "Player " + String(playerID))
+                HighlightedScoreTableGrid(gridContent: "Player " + String(playerID), highlighted: viewModel.currentTurn == playerID)
                 
                 ForEach(["1","2","3","4"], id: \.self) { scoreType in
                     InteractiveScoreTableGrid(viewModel: viewModel, playerID: playerID, scoreType: scoreType)
@@ -77,27 +77,55 @@ struct playerScoreColumn: View {
                     InteractiveScoreTableGrid(viewModel: viewModel, playerID: playerID, scoreType: scoreType)
                 }
                 
-                ScoreTableGrid(gridContent: String(viewModel.playerScores[playerID - 1].totalScore))
+                HighlightedScoreTableGrid(gridContent: String(viewModel.playerScores[playerID - 1].totalScore), highlighted: viewModel.playerScores[2-playerID].totalScore < viewModel.playerScores[playerID - 1].totalScore)
             }
         }
     }
 }
 
 struct ScoreTableGrid: View {
+    @Environment(\.colorScheme) var colorScheme
+    
     var gridContent: String
     var shape = Rectangle()
+    
     var body: some View {
         ZStack {
-            shape.fill().foregroundColor(.white)
-            shape.stroke(lineWidth: 3).foregroundColor(.blue)
+            shape.fill().foregroundColor(colorScheme == .dark ? .black : .white)
+            shape.stroke(lineWidth: 3).foregroundColor(colorScheme == .dark ? .yellow : .blue)
             Text(gridContent)
-                .foregroundColor(.black)
+                .foregroundColor(colorScheme == .dark ? .white : .black)
+        }
+    }
+}
+
+struct HighlightedScoreTableGrid: View {
+    @Environment(\.colorScheme) var colorScheme
+    
+    var gridContent: String
+    var highlighted: Bool
+    var shape = Rectangle()
+    
+    var body: some View {
+        ZStack {
+            if !highlighted {
+                shape.fill().foregroundColor(colorScheme == .dark ? .black : .white)
+                shape.stroke(lineWidth: 3).foregroundColor(colorScheme == .dark ? .yellow : .blue)
+                Text(gridContent)
+                    .foregroundColor(colorScheme == .dark ? .white : .black)
+            } else {
+                shape.fill().foregroundColor(colorScheme == .dark ? .yellow : .blue)
+                shape.stroke(lineWidth: 3).foregroundColor(colorScheme == .dark ? .yellow : .blue)
+                Text(gridContent)
+                    .foregroundColor(colorScheme == .dark ? .black : .white).font(Font.body.weight(.bold))
+            }
         }
     }
 }
 
 struct InteractiveScoreTableGrid: View {
     @ObservedObject var viewModel: ViewModel
+    @Environment(\.colorScheme) var colorScheme
     
     var playerID: Int
     var scoreType: String
@@ -123,13 +151,19 @@ struct InteractiveScoreTableGrid: View {
     var body: some View {
         ZStack {
             if !locked {
-                shape.fill().foregroundColor(.white)
-                shape.stroke(lineWidth: 3).foregroundColor(.blue)
-                Text(gridContent).foregroundColor(.gray)
+                if self.gridContent == "0" {
+                    shape.fill().foregroundColor(colorScheme == .dark ? .black : .white)
+                    shape.stroke(lineWidth: 3).foregroundColor(colorScheme == .dark ? .yellow : .blue)
+                    Text(gridContent).foregroundColor(.gray)
+                } else {
+                    shape.fill().foregroundColor(colorScheme == .dark ? .yellow : .blue)
+                    shape.stroke(lineWidth: 3).foregroundColor(colorScheme == .dark ? .yellow : .blue)
+                    Text(gridContent).foregroundColor(colorScheme == .dark ? .black : .white).font(Font.body.weight(.bold))
+                }
             } else {
-                shape.fill().foregroundColor(.blue)
-                shape.stroke(lineWidth: 3).foregroundColor(.white)
-                Text(gridContent).foregroundColor(.white)
+                shape.fill().foregroundColor(colorScheme == .dark ? .black : .white)
+                shape.stroke(lineWidth: 3).foregroundColor(colorScheme == .dark ? .yellow : .blue)
+                Text(gridContent).foregroundColor(colorScheme == .dark ? .white : .black).font(Font.body.weight(.bold))
             }
         }
         .onTapGesture {

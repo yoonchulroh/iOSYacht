@@ -9,6 +9,7 @@ import SwiftUI
 
 struct DiceView: View {
     @ObservedObject var viewModel: ViewModel
+    @Environment(\.colorScheme) var colorScheme
     
     var diceIndex: Int
     
@@ -19,19 +20,19 @@ struct DiceView: View {
     var body: some View {
         ZStack {
             if viewModel.dicePart.dices[diceIndex].locked {
-                shape.fill().foregroundColor(.blue).aspectRatio(1, contentMode: .fit)
-                shape.stroke(lineWidth: 3).foregroundColor(.blue).aspectRatio(1, contentMode: .fit)
+                shape.fill().foregroundColor(colorScheme == .dark ? .yellow : .blue).aspectRatio(1, contentMode: .fit)
+                shape.stroke(lineWidth: 3).foregroundColor(colorScheme == .dark ? .yellow : .blue).aspectRatio(1, contentMode: .fit)
                 Image(systemName: diceFaces[viewModel.dicePart.dices[diceIndex].diceFace])
                     .resizable()
                     .scaledToFit()
-                    .foregroundColor(.white)
+                    .foregroundColor(colorScheme == .dark ? .black : .white)
             } else {
-                shape.fill().foregroundColor(.white).aspectRatio(1, contentMode: .fit)
-                shape.stroke(lineWidth: 3).foregroundColor(.blue).aspectRatio(1, contentMode: .fit)
+                shape.fill().foregroundColor(colorScheme == .dark ? .black : .white).aspectRatio(1, contentMode: .fit)
+                shape.stroke(lineWidth: 3).foregroundColor(colorScheme == .dark ? .yellow : .blue).aspectRatio(1, contentMode: .fit)
                 Image(systemName: diceFaces[viewModel.dicePart.dices[diceIndex].diceFace])
                     .resizable()
                     .scaledToFit()
-                    .foregroundColor(.blue)
+                    .foregroundColor(colorScheme == .dark ? .yellow : .blue)
             }
         }
         .padding(.horizontal)

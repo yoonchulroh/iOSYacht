@@ -13,6 +13,7 @@ class ViewModel: ObservableObject {
     @Published private(set) var isBot: [Bool]
     @Published private(set) var remainingRolls: Int
     @Published private(set) var currentTurn: Int
+    @Published private(set) var iterations: Int = 0
     @Published private(set) var userMessage: String
     @Published private(set) var botPlayer: BotPlayer?
     
@@ -46,7 +47,9 @@ class ViewModel: ObservableObject {
     
     func lockToggle(_ diceIndex: Int) {
         objectWillChange.send()
-        dicePart.dices[diceIndex].locked.toggle()
+        if dicePart.dices[diceIndex].diceFace != 0 {
+            dicePart.dices[diceIndex].locked.toggle()
+        }
     }
     
     func addToScore(_ scoreType: String, _ playerID: Int) {
@@ -64,7 +67,12 @@ class ViewModel: ObservableObject {
         dicePart.reset()
         remainingRolls = 3
         currentTurn = 3 - currentTurn
+        iterations += 1
         userMessage = "It is now Player " + String(currentTurn) + "'s turn."
+        if iterations == 24 {
+            resetScore()
+            iterations = 0
+        }
         if isBot[currentTurn - 1] {
             botPlayer!.playTurn()
         }

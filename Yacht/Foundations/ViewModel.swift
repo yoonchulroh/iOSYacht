@@ -13,14 +13,15 @@ class ViewModel: ObservableObject {
     @Published private(set) var isBot: [Bool]
     @Published private(set) var remainingRolls: Int
     @Published private(set) var currentTurn: Int
-    @Published private(set) var iterations: Int = 0
+    @Published private(set) var iterations: Int = 1
     @Published private(set) var userMessage: String
     @Published private(set) var botPlayer: BotPlayer?
+    @Published private(set) var gameOver: Bool = false
     
     init() {
         dicePart = DiceField(5)
         playerScores = []
-        isBot = [false, false]
+        isBot = [false, false, false]
         remainingRolls = 3
         currentTurn = 1
         userMessage = "Starting the game..."
@@ -67,14 +68,24 @@ class ViewModel: ObservableObject {
         dicePart.reset()
         remainingRolls = 3
         currentTurn = 3 - currentTurn
-        iterations += 1
-        userMessage = "It is now Player " + String(currentTurn) + "'s turn."
-        if iterations == 24 {
-            resetScore()
-            iterations = 0
+        if currentTurn == 1 {
+            iterations += 1
         }
-        if isBot[currentTurn - 1] {
-            botPlayer!.playTurn()
+        if iterations == 13 {
+            gameOver = true
+            if playerScores[0].totalScore > playerScores[1].totalScore {
+                userMessage = "Player 1 Wins!"
+            } else if playerScores[1].totalScore > playerScores[0].totalScore {
+                userMessage = "Player 2 Wins!"
+            } else {
+                userMessage = "Draw!"
+            }
+            currentTurn = 0
+        } else {
+            userMessage = "It is now Player " + String(currentTurn) + "'s turn."
+            if isBot[currentTurn] {
+                botPlayer!.playTurn()
+            }
         }
     }
     
@@ -83,6 +94,14 @@ class ViewModel: ObservableObject {
         for item in playerScores {
             item.resetScore()
         }
+        gameOver = false
+        iterations = 1
+        currentTurn = 1
+        if remainingRolls < 3 {
+            dicePart.reset()
+        }
+        remainingRolls = 3
+        userMessage = "Starting the game..."
     }
 }
 

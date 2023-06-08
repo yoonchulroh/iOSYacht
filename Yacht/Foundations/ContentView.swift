@@ -34,7 +34,10 @@ struct ContentView: View {
                 ScoreView(viewModel: viewModel)
                 MessageView(viewModel: viewModel)
                 DicesFieldView(viewModel: viewModel)
-                RollButton(viewModel: viewModel)
+                HStack {
+                    RollButton(viewModel: viewModel)
+                    //ResetButton(viewModel: viewModel)
+                }
             }
         }
     }

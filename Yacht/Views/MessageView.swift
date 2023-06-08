@@ -13,5 +13,6 @@ struct MessageView: View {
     var body: some View {
         Text(viewModel.userMessage)
             .padding(.bottom)
+            .font(Font.title3.weight(.bold))
     }
 }

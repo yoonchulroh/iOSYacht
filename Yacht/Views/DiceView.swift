@@ -13,7 +13,7 @@ struct DiceView: View {
     
     var diceIndex: Int
     
-    let diceFaces = ["0.square", "1.square", "2.square", "3.square", "4.square", "5.square", "6.square"]
+    let diceFaces = ["diceDefault", "dice1", "dice2", "dice3", "dice4", "dice5", "dice6"]
     
     let shape = RoundedRectangle(cornerRadius: 5)
     
@@ -22,14 +22,14 @@ struct DiceView: View {
             if viewModel.dicePart.dices[diceIndex].locked {
                 shape.fill().foregroundColor(colorScheme == .dark ? .yellow : .blue).aspectRatio(1, contentMode: .fit)
                 shape.stroke(lineWidth: 3).foregroundColor(colorScheme == .dark ? .yellow : .blue).aspectRatio(1, contentMode: .fit)
-                Image(systemName: diceFaces[viewModel.dicePart.dices[diceIndex].diceFace])
+                Image(colorScheme == .dark ? diceFaces[viewModel.dicePart.dices[diceIndex].diceFace] : diceFaces[viewModel.dicePart.dices[diceIndex].diceFace] + "White")
                     .resizable()
                     .scaledToFit()
                     .foregroundColor(colorScheme == .dark ? .black : .white)
             } else {
                 shape.fill().foregroundColor(colorScheme == .dark ? .black : .white).aspectRatio(1, contentMode: .fit)
-                shape.stroke(lineWidth: 3).foregroundColor(colorScheme == .dark ? .yellow : .blue).aspectRatio(1, contentMode: .fit)
-                Image(systemName: diceFaces[viewModel.dicePart.dices[diceIndex].diceFace])
+                //shape.stroke(lineWidth: 3).foregroundColor(colorScheme == .dark ? .yellow : .blue).aspectRatio(1, contentMode: .fit)
+                Image(colorScheme == .light ? diceFaces[viewModel.dicePart.dices[diceIndex].diceFace] : diceFaces[viewModel.dicePart.dices[diceIndex].diceFace] + "White")
                     .resizable()
                     .scaledToFit()
                     .foregroundColor(colorScheme == .dark ? .yellow : .blue)

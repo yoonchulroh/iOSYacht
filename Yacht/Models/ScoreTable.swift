@@ -53,5 +53,6 @@ class ScoreTable {
             score[i] = 0
             scoreLocked[i] = false
         }
+        totalScore = 0
     }
 }

@@ -21,7 +21,7 @@ class ViewModel: ObservableObject {
     init() {
         dicePart = DiceField(5)
         playerScores = []
-        isBot = [false, false, false]
+        isBot = [false, false, true]
         remainingRolls = 3
         currentTurn = 1
         userMessage = "Starting the game..."
@@ -48,7 +48,7 @@ class ViewModel: ObservableObject {
     
     func lockToggle(_ diceIndex: Int) {
         objectWillChange.send()
-        if dicePart.dices[diceIndex].diceFace != 0 {
+        if dicePart.dices[diceIndex].diceFace != 0 && remainingRolls < 3 {
             dicePart.dices[diceIndex].locked.toggle()
         }
     }
@@ -65,7 +65,7 @@ class ViewModel: ObservableObject {
     
     func passTurn() {
         objectWillChange.send()
-        dicePart.reset()
+        dicePart.partialReset()
         remainingRolls = 3
         currentTurn = 3 - currentTurn
         if currentTurn == 1 {
@@ -73,6 +73,7 @@ class ViewModel: ObservableObject {
         }
         if iterations == 13 {
             gameOver = true
+            dicePart.reset()
             if playerScores[0].totalScore > playerScores[1].totalScore {
                 userMessage = "Player 1 Wins!"
             } else if playerScores[1].totalScore > playerScores[0].totalScore {

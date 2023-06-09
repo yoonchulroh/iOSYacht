@@ -69,6 +69,12 @@ struct DiceField {
         }
     }
     
+    func partialReset() {
+        for dice in dices {
+            dice.locked = false
+        }
+    }
+    
     func calculateScore(_ scoreType: String) -> Int {
         var score: Int = 0
         var diceFaces: [Int] = [0,0,0,0,0,0]

@@ -32,15 +32,16 @@ struct ScoreTableLeftLegend: View {
             }
             
             VStack {
-                ForEach(["5", "6", "Bonus", "Choice", "Full House"], id: \.self) { label in
-                    ScoreTableGrid(gridContent: label)
+                ForEach(["5", "6", "Bonus (63+)", "Choice", "Full House"], id: \.self) { label in
+                    HighlightedScoreTableGrid(gridContent: label, highlighted: label == "Bonus (63+)")
                 }
             }
                 
             VStack {
-                ForEach(["Four of Kind", "S. Straight", "L. Straight", "Yacht", "Total"], id: \.self) { label in
+                ForEach(["Four of Kind", "S. Straight", "L. Straight", "Yacht"], id: \.self) { label in
                     ScoreTableGrid(gridContent: label)
                 }
+                HighlightedScoreTableGrid(gridContent: "Total", highlighted: true)
             }
         }
     }
@@ -53,7 +54,7 @@ struct playerScoreColumn: View {
     var body: some View {
         VStack {
             VStack {
-                HighlightedScoreTableGrid(gridContent: "Player " + String(playerID), highlighted: viewModel.currentTurn == playerID)
+                HighlightedScoreTableGrid(gridContent: viewModel.playerNames[playerID - 1], highlighted: viewModel.currentTurn == playerID)
                 
                 ForEach(["1","2","3","4"], id: \.self) { scoreType in
                     InteractiveScoreTableGrid(viewModel: viewModel, playerID: playerID, scoreType: scoreType)

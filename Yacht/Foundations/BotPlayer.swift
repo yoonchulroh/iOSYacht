@@ -53,7 +53,11 @@ class BotPlayer: ObservableObject {
         
         topPriority = priorityForIDs[0]
         for i in 0 ... availableIDs.count - 1 {
-            if priorityForIDs[i] >= topPriority {
+            if priorityForIDs[i] > topPriority {
+                topPriority = priorityForIDs[i]
+                topPriorityIDs = []
+                topPriorityIDs.append(availableIDs[i])
+            } else if priorityForIDs[i] == topPriority {
                 topPriority = priorityForIDs[i]
                 topPriorityIDs.append(availableIDs[i])
             }

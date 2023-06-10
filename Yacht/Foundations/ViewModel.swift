@@ -13,15 +13,18 @@ class ViewModel: ObservableObject {
     @Published private(set) var isBot: [Bool]
     @Published private(set) var remainingRolls: Int
     @Published private(set) var currentTurn: Int
-    @Published private(set) var iterations: Int = 1
+    @Published private(set) var iterations: Int
     @Published private(set) var userMessage: String
     @Published private(set) var botPlayer: BotPlayer?
     @Published private(set) var gameOver: Bool = false
+    @Published private(set) var playerNames: [String]
     
     init() {
         dicePart = DiceField(5)
         playerScores = []
+        iterations = 1
         isBot = [false, false, true]
+        playerNames = ["Player", "Bot"]
         remainingRolls = 3
         currentTurn = 1
         userMessage = "Starting the game..."
@@ -40,7 +43,7 @@ class ViewModel: ObservableObject {
             if dicePart.checkUserMessage() != "" {
                 userMessage = dicePart.checkUserMessage()
             } else {
-                userMessage = "It is now Player " + String(currentTurn) + "'s turn."
+                userMessage = "It is now " + playerNames[currentTurn - 1] + "'s turn."
             }
             remainingRolls -= 1
         }
@@ -75,15 +78,15 @@ class ViewModel: ObservableObject {
             gameOver = true
             dicePart.reset()
             if playerScores[0].totalScore > playerScores[1].totalScore {
-                userMessage = "Player 1 Wins!"
+                userMessage = playerNames[0] + " Wins!"
             } else if playerScores[1].totalScore > playerScores[0].totalScore {
-                userMessage = "Player 2 Wins!"
+                userMessage = playerNames[1] + " Wins!"
             } else {
                 userMessage = "Draw!"
             }
             currentTurn = 0
         } else {
-            userMessage = "It is now Player " + String(currentTurn) + "'s turn."
+            userMessage = "It is now " + playerNames[currentTurn - 1] + "'s turn."
             if isBot[currentTurn] {
                 botPlayer!.playTurn()
             }

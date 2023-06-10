@@ -7,33 +7,67 @@
 
 import Foundation
 
+enum GameMode {
+    case home
+    case singleplayer
+    case multiplayer
+}
+
 class ViewModel: ObservableObject {
-    @Published private(set) var dicePart: DiceField
-    @Published private(set) var playerScores: [ScoreTable]
-    @Published private(set) var isBot: [Bool]
-    @Published private(set) var remainingRolls: Int
+    
+    @Published private(set) var gameMode: GameMode
+    
     @Published private(set) var currentTurn: Int
     @Published private(set) var iterations: Int
+    @Published private(set) var remainingRolls: Int
+    @Published private(set) var gameOver: Bool
+    
+    @Published private(set) var dicePart: DiceField
     @Published private(set) var userMessage: String
-    @Published private(set) var botPlayer: BotPlayer?
-    @Published private(set) var gameOver: Bool = false
+    
+    @Published private(set) var playerCount: Int
     @Published private(set) var playerNames: [String]
+    @Published private(set) var isBot: [Bool]
+    @Published private(set) var playerScores: [ScoreTable]
+    
+    @Published private(set) var botPlayer: BotPlayer?
     
     init() {
-        dicePart = DiceField(5)
-        playerScores = []
-        iterations = 1
-        isBot = [false, false, true]
-        playerNames = ["Player", "Bot"]
-        remainingRolls = 3
+        gameMode = .home
+        
         currentTurn = 1
+        iterations = 1
+        remainingRolls = 3
+        gameOver = false
+        
+        dicePart = DiceField(5)
         userMessage = "Starting the game..."
+        
+        playerCount = 2
+        self.playerNames = ["Player 1", "Player 2"]
+        self.isBot = [false, false, false]
+        playerScores = []
+        
         playerScores.append(ScoreTable())
         playerScores.append(ScoreTable())
     }
     
-    func setBotPlayer(botPlayer: BotPlayer) {
-        self.botPlayer = botPlayer
+    func setBotPlayer() {
+        let botPlayerID = [1,2].randomElement()!
+        if botPlayerID == 1 {
+            self.isBot = [false, true, false]
+            playerNames = ["Bot", "Player"]
+        } else {
+            self.isBot = [false, false, true]
+            playerNames = ["Player", "Bot"]
+        }
+        
+        self.botPlayer = BotPlayer(playerID: botPlayerID, viewModel: self)
+        
+        if isBot[currentTurn] {
+            userMessage = self.botPlayer!.playTurn()
+            passTurn()
+        }
     }
     
     func roll() {
@@ -62,7 +96,6 @@ class ViewModel: ObservableObject {
             playerScores[playerID - 1].score[scoreTypeDictionary[scoreType]!] = dicePart.calculateScore(scoreType)
             playerScores[playerID - 1].scoreLocked[scoreTypeDictionary[scoreType]!] = true
             playerScores[playerID - 1].calculateSecondaryScore(scoreType, dicePart)
-            passTurn()
         }
     }
     
@@ -70,10 +103,7 @@ class ViewModel: ObservableObject {
         objectWillChange.send()
         dicePart.partialReset()
         remainingRolls = 3
-        currentTurn = 3 - currentTurn
-        if currentTurn == 1 {
-            iterations += 1
-        }
+        updateTurnNumber()
         if iterations == 13 {
             gameOver = true
             dicePart.reset()
@@ -88,8 +118,17 @@ class ViewModel: ObservableObject {
         } else {
             userMessage = "It is now " + playerNames[currentTurn - 1] + "'s turn."
             if isBot[currentTurn] {
-                botPlayer!.playTurn()
+                userMessage = botPlayer!.playTurn()
+                passTurn()
             }
+        }
+    }
+    
+    func updateTurnNumber() {
+        currentTurn += 1
+        if currentTurn > playerCount {
+            iterations += 1
+            currentTurn = 1
         }
     }
     
@@ -106,6 +145,7 @@ class ViewModel: ObservableObject {
         }
         remainingRolls = 3
         userMessage = "Starting the game..."
+        setBotPlayer()
     }
 }
 

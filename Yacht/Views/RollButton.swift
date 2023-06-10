@@ -33,7 +33,7 @@ struct RollButton: View {
             if viewModel.gameOver {
                 viewModel.resetScore()
             } else {
-                if viewModel.remainingRolls > 0 && !viewModel.isBot[viewModel.currentTurn - 1] {
+                if viewModel.remainingRolls > 0 && !viewModel.isBot[viewModel.currentTurn] {
                     viewModel.roll()
                 }
             }

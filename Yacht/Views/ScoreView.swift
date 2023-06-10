@@ -66,7 +66,7 @@ struct playerScoreColumn: View {
                     InteractiveScoreTableGrid(viewModel: viewModel, playerID: playerID, scoreType: scoreType)
                 }
                 
-                ScoreTableGrid(gridContent: String(viewModel.playerScores[playerID - 1].score[scoreTypeDictionary["bonus"]!]))
+                HighlightedScoreTableGrid(gridContent: String(viewModel.playerScores[playerID - 1].score[scoreTypeDictionary["bonus"]!]), highlighted: viewModel.playerScores[playerID - 1].scoreLocked[scoreTypeDictionary["bonus"] ?? 0])
                 
                 ForEach(["choice", "fullHouse"], id: \.self) { scoreType in
                     InteractiveScoreTableGrid(viewModel: viewModel, playerID: playerID, scoreType: scoreType)
@@ -168,8 +168,9 @@ struct InteractiveScoreTableGrid: View {
             }
         }
         .onTapGesture {
-            if viewModel.currentTurn == playerID && !viewModel.isBot[playerID - 1] {
+            if viewModel.currentTurn == playerID && !viewModel.isBot[playerID] {
                 viewModel.addToScore(scoreType, playerID)
+                viewModel.passTurn()
             }
         }
     }

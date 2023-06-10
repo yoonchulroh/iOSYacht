@@ -10,16 +10,14 @@ import SwiftUI
 @main
 struct YachtApp: App {
     let game: ViewModel
-    let botPlayer: BotPlayer
     
     init() {
         game = ViewModel()
-        botPlayer = BotPlayer(playerID: 2)
     }
     
     var body: some Scene {
         WindowGroup {
-            ContentView(viewModel: game, botPlayer: botPlayer)
+            ContentView(viewModel: game)
         }
     }
 }

@@ -9,14 +9,10 @@ import SwiftUI
 
 struct ContentView: View {
     @ObservedObject var viewModel: ViewModel
-    @ObservedObject var botPlayer: BotPlayer
     
-    init(viewModel: ViewModel, botPlayer: BotPlayer) {
+    init(viewModel: ViewModel) {
         self.viewModel = viewModel
-        self.botPlayer = botPlayer
-        
-        self.viewModel.setBotPlayer(botPlayer: botPlayer)
-        self.botPlayer.setViewModel(viewModel: viewModel)
+        //self.viewModel.setBotPlayer()
     }
     
     var body: some View {
@@ -45,9 +41,8 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var game: ViewModel = ViewModel()
-    static var botPlayer: BotPlayer = BotPlayer(playerID: 2)
     
     static var previews: some View {
-        ContentView(viewModel: game, botPlayer: botPlayer)
+        ContentView(viewModel: game)
     }
 }

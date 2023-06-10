@@ -22,11 +22,17 @@ class ScoreTable {
     
     func calculateSecondaryScore(_ scoreType: String, _ dicePart: DiceField) {
         var numberScoreTotal = 0
+        var numberScoreAllLocked = true
         for i in 1 ... 6 {
             numberScoreTotal += self.score[i]
+            if self.scoreLocked[i] == false {
+                numberScoreAllLocked = false
+            }
         }
         if !self.scoreLocked[scoreTypeDictionary["bonus"] ?? 0] && numberScoreTotal >= 63 {
             self.score[scoreTypeDictionary["bonus"] ?? 0] = 35
+            self.scoreLocked[scoreTypeDictionary["bonus"] ?? 0] = true
+        } else if numberScoreAllLocked {
             self.scoreLocked[scoreTypeDictionary["bonus"] ?? 0] = true
         }
         

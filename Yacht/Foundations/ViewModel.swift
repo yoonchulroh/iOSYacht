@@ -11,6 +11,7 @@ enum GameMode {
     case home
     case singleplayer
     case multiplayer
+    case settings
 }
 
 class ViewModel: ObservableObject {
@@ -145,7 +146,28 @@ class ViewModel: ObservableObject {
         }
         remainingRolls = 3
         userMessage = "Starting the game..."
-        setBotPlayer()
+        if gameMode == .singleplayer {
+            setBotPlayer()
+        }
+    }
+    
+    func switchGameMode(destination: GameMode) {
+        objectWillChange.send()
+        switch(destination) {
+        case(.home):
+            self.gameMode = .home
+        case(.singleplayer):
+            self.gameMode = .singleplayer
+            resetScore()
+            setBotPlayer()
+        case(.multiplayer):
+            self.gameMode = .multiplayer
+            resetScore()
+            self.playerNames = ["Player 1", "Player 2"]
+            self.isBot = [false, false, false]
+        case(.settings):
+            self.gameMode = .settings
+        }
     }
 }
 

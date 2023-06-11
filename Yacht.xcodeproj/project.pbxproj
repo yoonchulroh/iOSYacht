@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D800C9372A353EE0007C9EBE /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D800C9362A353EE0007C9EBE /* HomeView.swift */; };
+		D800C9392A353F0B007C9EBE /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D800C9382A353F0B007C9EBE /* GameView.swift */; };
+		D800C93C2A35401E007C9EBE /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D800C93B2A35401E007C9EBE /* SettingsView.swift */; };
+		D800C93E2A354446007C9EBE /* HomeButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D800C93D2A354446007C9EBE /* HomeButtonView.swift */; };
 		D822C4BB2A1989BF001BD2BA /* Priorities.swift in Sources */ = {isa = PBXBuildFile; fileRef = D822C4BA2A1989BF001BD2BA /* Priorities.swift */; };
 		D822C4C02A198B64001BD2BA /* Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D822C4BF2A198B64001BD2BA /* Actions.swift */; };
 		D822C4C22A199C0F001BD2BA /* DiceEvaluation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D822C4C12A199C0F001BD2BA /* DiceEvaluation.swift */; };
@@ -49,6 +53,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D800C9362A353EE0007C9EBE /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		D800C9382A353F0B007C9EBE /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
+		D800C93B2A35401E007C9EBE /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		D800C93D2A354446007C9EBE /* HomeButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeButtonView.swift; sourceTree = "<group>"; };
 		D822C4BA2A1989BF001BD2BA /* Priorities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Priorities.swift; sourceTree = "<group>"; };
 		D822C4BF2A198B64001BD2BA /* Actions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Actions.swift; sourceTree = "<group>"; };
 		D822C4C12A199C0F001BD2BA /* DiceEvaluation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceEvaluation.swift; sourceTree = "<group>"; };
@@ -102,6 +110,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D800C93A2A353F65007C9EBE /* SceneView */ = {
+			isa = PBXGroup;
+			children = (
+				D800C9362A353EE0007C9EBE /* HomeView.swift */,
+				D800C9382A353F0B007C9EBE /* GameView.swift */,
+				D800C93B2A35401E007C9EBE /* SettingsView.swift */,
+			);
+			path = SceneView;
+			sourceTree = "<group>";
+		};
 		D822C4BC2A1989CA001BD2BA /* AI */ = {
 			isa = PBXGroup;
 			children = (
@@ -138,6 +156,7 @@
 				D8E3534A2A17339A00E394A8 /* Foundations */,
 				D8E353482A17335A00E394A8 /* Models */,
 				D822C4BC2A1989CA001BD2BA /* AI */,
+				D800C93A2A353F65007C9EBE /* SceneView */,
 				D8E353472A17333300E394A8 /* Views */,
 				D8E3534B2A17343500E394A8 /* Complementaries */,
 				D89E664A2A10710E0041C7C7 /* Yacht.entitlements */,
@@ -175,6 +194,7 @@
 		D8E353472A17333300E394A8 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				D800C93D2A354446007C9EBE /* HomeButtonView.swift */,
 				D89E66772A109EF60041C7C7 /* RollButton.swift */,
 				D8E353452A172AA100E394A8 /* MessageView.swift */,
 				D89E667B2A10A74E0041C7C7 /* ScoreView.swift */,
@@ -357,13 +377,17 @@
 				D89E66782A109EF60041C7C7 /* RollButton.swift in Sources */,
 				D89E66472A10710D0041C7C7 /* ContentView.swift in Sources */,
 				D8E3534F2A17389B00E394A8 /* BotPlayer.swift in Sources */,
+				D800C93C2A35401E007C9EBE /* SettingsView.swift in Sources */,
 				D89E667C2A10A74E0041C7C7 /* ScoreView.swift in Sources */,
 				D822C4C02A198B64001BD2BA /* Actions.swift in Sources */,
 				D89E66742A107EAA0041C7C7 /* DiceView.swift in Sources */,
 				D8E3534D2A17385000E394A8 /* DelayTime.swift in Sources */,
+				D800C93E2A354446007C9EBE /* HomeButtonView.swift in Sources */,
+				D800C9372A353EE0007C9EBE /* HomeView.swift in Sources */,
 				D89E66762A1082650041C7C7 /* DicesFieldView.swift in Sources */,
 				D822C4BB2A1989BF001BD2BA /* Priorities.swift in Sources */,
 				D89E66702A1075950041C7C7 /* DiceData.swift in Sources */,
+				D800C9392A353F0B007C9EBE /* GameView.swift in Sources */,
 				D822C4C22A199C0F001BD2BA /* DiceEvaluation.swift in Sources */,
 				D89E66722A1078520041C7C7 /* ViewModel.swift in Sources */,
 				D89E66452A10710D0041C7C7 /* YachtApp.swift in Sources */,

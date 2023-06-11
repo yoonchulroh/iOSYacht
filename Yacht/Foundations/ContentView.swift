@@ -12,29 +12,18 @@ struct ContentView: View {
     
     init(viewModel: ViewModel) {
         self.viewModel = viewModel
-        //self.viewModel.setBotPlayer()
     }
     
     var body: some View {
-        if UIDevice.current.userInterfaceIdiom == .pad && UIDeviceOrientation.unknown.isLandscape {
-            HStack {
-                ScoreView(viewModel: viewModel)
-                VStack {
-                    MessageView(viewModel: viewModel)
-                    DicesFieldView(viewModel: viewModel)
-                    RollButton(viewModel: viewModel)
-                }
-            }
-        } else {
-            VStack {
-                ScoreView(viewModel: viewModel)
-                MessageView(viewModel: viewModel)
-                DicesFieldView(viewModel: viewModel)
-                HStack {
-                    RollButton(viewModel: viewModel)
-                    //ResetButton(viewModel: viewModel)
-                }
-            }
+        switch(viewModel.gameMode) {
+        case(.home):
+            HomeView(viewModel: viewModel)
+        case(.singleplayer):
+            GameView(viewModel: viewModel)
+        case(.multiplayer):
+            GameView(viewModel: viewModel)
+        case(.settings):
+            SettingsView(viewModel: viewModel)
         }
     }
 }

@@ -12,29 +12,18 @@ struct GameView: View {
     @ObservedObject var viewModel: ViewModel
     
     var body: some View {
-        if UIDevice.current.userInterfaceIdiom == .pad && UIDeviceOrientation.unknown.isLandscape {
+        VStack {
             HStack {
-                ScoreView(viewModel: viewModel)
-                VStack {
-                    MessageView(viewModel: viewModel)
-                    DicesFieldView(viewModel: viewModel)
-                    RollButton(viewModel: viewModel)
-                }
+                HomeButtonView(viewModel: viewModel).padding(.leading)
+                Spacer()
+                RefreshButtonView(viewModel: viewModel).padding(.trailing)
             }
-        } else {
-            VStack {
-                HStack {
-                    HomeButtonView(viewModel: viewModel).padding(.leading)
-                    Spacer()
-                    RefreshButtonView(viewModel: viewModel).padding(.trailing)
-                }
-                ScoreView(viewModel: viewModel)
-                MessageView(viewModel: viewModel)
-                DicesFieldView(viewModel: viewModel)
-                HStack {
-                    RollButton(viewModel: viewModel)
-                    //ResetButton(viewModel: viewModel)
-                }
+            ScoreView(viewModel: viewModel)
+            MessageView(viewModel: viewModel)
+            DicesFieldView(viewModel: viewModel)
+            HStack {
+                RollButton(viewModel: viewModel)
+                //ResetButton(viewModel: viewModel)
             }
         }
     }

@@ -40,3 +40,20 @@ var reversedScoreTypeDictionary: [Int: String] = [
     11: "largeStraight",
     12: "yacht"
 ]
+
+var scoreTypeToPresentable: [String: String] = [
+    "1": "Number 1",
+    "2": "Number 2",
+    "3": "Number 3",
+    "4": "Number 4",
+    "5": "Number 5",
+    "6": "Number 6",
+    "bonus": "Bonus",
+    
+    "choice": "Choice",
+    "fullHouse": "Full House",
+    "fourOfKind": "Four of Kind",
+    "smallStraight": "Small Straight",
+    "largeStraight": "Large Straight",
+    "yacht": "Yacht"
+]

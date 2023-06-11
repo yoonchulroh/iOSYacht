@@ -24,6 +24,8 @@ struct ContentView: View {
             GameView(viewModel: viewModel)
         case(.settings):
             SettingsView(viewModel: viewModel)
+        case(.testLuck):
+            TestYourLuckView(viewModel: viewModel)
         }
     }
 }

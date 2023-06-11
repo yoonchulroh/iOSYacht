@@ -11,6 +11,9 @@ class ScoreTable {
     var score: [Int] = []
     var scoreLocked: [Bool] = []
     
+    var lastPick: String = ""
+    var lastGainedScore: String = ""
+    
     init() {
         for _ in 1 ... 13 {
             score.append(0)
@@ -60,5 +63,8 @@ class ScoreTable {
             scoreLocked[i] = false
         }
         totalScore = 0
+        
+        lastPick = ""
+        lastGainedScore = ""
     }
 }

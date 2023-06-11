@@ -10,11 +10,31 @@ import SwiftUI
 
 struct HomeView: View {
     @ObservedObject var viewModel: ViewModel
+    @Environment(\.colorScheme) var colorScheme
     
     let shape = RoundedRectangle(cornerRadius: 20)
     
     var body: some View {
         VStack {
+            Spacer()
+            HStack {
+                Image("coloredDice")
+                    .resizable()
+                    .frame(width: 150, height: 150)
+                Text("Yacht!").font(Font.title.weight(.bold)).padding(.trailing)
+            }
+            Spacer()
+            
+            ZStack {
+                shape.fill().foregroundColor(.green)
+                Text("Test Your Luck").font(Font.title2.weight(.bold)).foregroundColor(.white)
+            }
+            .aspectRatio(4, contentMode: .fit)
+            .padding(.all)
+            .onTapGesture {
+                viewModel.switchGameMode(destination: .testLuck)
+            }
+            
             ZStack {
                 shape.fill().foregroundColor(.blue)
                 Text("Singleplayer").font(Font.title2.weight(.bold)).foregroundColor(.white)

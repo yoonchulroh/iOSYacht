@@ -168,7 +168,7 @@ struct InteractiveScoreTableGrid: View {
             }
         }
         .onTapGesture {
-            if viewModel.currentTurn == playerID && !viewModel.isBot[playerID] {
+            if viewModel.currentTurn == playerID && !viewModel.isBot[playerID] && viewModel.remainingRolls < 3 {
                 viewModel.addToScore(scoreType, playerID)
                 viewModel.passTurn()
             }

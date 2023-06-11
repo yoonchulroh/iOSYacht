@@ -26,7 +26,7 @@ struct RefreshButtonView: View {
     @Environment(\.colorScheme) var colorScheme
     
     var body: some View {
-        Image(systemName: "arrow.counterclockwise")
+        Image(systemName: "arrow.2.squarepath")
             .foregroundColor(colorScheme == .dark ? .white : .black)
             .onTapGesture {
                 viewModel.resetScore()

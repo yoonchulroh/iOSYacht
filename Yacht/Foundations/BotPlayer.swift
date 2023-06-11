@@ -71,34 +71,7 @@ class BotPlayer: ObservableObject {
             let ID = topPriorityIDs.randomElement()!
             pickActions!.pickByID(ID: ID)
             
-            var botPickMessage = viewModel!.playerNames[playerID - 1]
-            switch(ID) {
-            case 0 ... 35:
-                botPickMessage = botPickMessage + " picked Number " + String((ID + 6 - (ID % 6)) / 6) + ", gaining "
-                botPickMessage = botPickMessage + String(viewModel!.dicePart.calculateScore(String((ID + 6 - (ID % 6)) / 6)))
-            case 36 ... 59:
-                botPickMessage = botPickMessage + " picked Choice" + ", gaining "
-                botPickMessage = botPickMessage + String(viewModel!.dicePart.calculateScore("choice"))
-            case 60 ... 299:
-                botPickMessage = botPickMessage + " picked Full House" + ", gaining "
-                botPickMessage = botPickMessage + String(viewModel!.dicePart.calculateScore("fullHouse"))
-            case 300 ... 335:
-                botPickMessage = botPickMessage + " picked Four of Kind" + ", gaining "
-                botPickMessage = botPickMessage + String(viewModel!.dicePart.calculateScore("fourOfKind"))
-            case 336 ... 350:
-                botPickMessage = botPickMessage + " picked Small Straight" + ", gaining "
-                botPickMessage = botPickMessage + String(viewModel!.dicePart.calculateScore("smallStraight"))
-            case 351 ... 362:
-                botPickMessage = botPickMessage + " picked Large Straight" + ", gaining "
-                botPickMessage = botPickMessage + String(viewModel!.dicePart.calculateScore("largeStraight"))
-            case 363 ... 398:
-                botPickMessage = botPickMessage + " picked Yacht" + ", gaining "
-                botPickMessage = botPickMessage + String(viewModel!.dicePart.calculateScore("yacht"))
-            default:
-                print("PlayPhase return String Error")
-                botPickMessage = "PlayPhase return String Error"
-            }
-            return botPickMessage
+            return viewModel!.playerNames[playerID - 1] + " picked " + viewModel!.playerScores[playerID - 1].lastPick + ", gaining " + viewModel!.playerScores[playerID - 1].lastGainedScore
         }
     }
 }

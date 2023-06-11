@@ -12,6 +12,7 @@ struct RollButton: View {
     @Environment(\.colorScheme) var colorScheme
     
     let shape = RoundedRectangle(cornerRadius: 20)
+    var isHome: Bool = false
     
     var body: some View {
         ZStack {
@@ -22,9 +23,15 @@ struct RollButton: View {
                     .foregroundColor(colorScheme == .dark ? .white : .black)
                     .font(Font.title3.weight(.bold))
             } else {
-                Text("Remaining Rolls: " + String(viewModel.remainingRolls))
-                    .foregroundColor(colorScheme == .dark ? .white : .black)
-                    .font(Font.title3.weight(.bold))
+                if isHome && viewModel.remainingRolls == 0 {
+                    Text("Reset")
+                        .foregroundColor(colorScheme == .dark ? .white : .black)
+                        .font(Font.title3.weight(.bold))
+                } else {
+                    Text("Remaining Rolls: " + String(viewModel.remainingRolls))
+                        .foregroundColor(colorScheme == .dark ? .white : .black)
+                        .font(Font.title3.weight(.bold))
+                }
             }
         }
         .aspectRatio(4, contentMode: .fit)
@@ -35,6 +42,8 @@ struct RollButton: View {
             } else {
                 if viewModel.remainingRolls > 0 && !viewModel.isBot[viewModel.currentTurn] {
                     viewModel.roll()
+                } else if isHome && viewModel.remainingRolls == 0{
+                    viewModel.resetScore()
                 }
             }
         }

@@ -12,6 +12,7 @@ enum GameMode {
     case singleplayer
     case multiplayer
     case settings
+    case testLuck
 }
 
 class ViewModel: ObservableObject {
@@ -78,7 +79,7 @@ class ViewModel: ObservableObject {
             if dicePart.checkUserMessage() != "" {
                 userMessage = dicePart.checkUserMessage()
             } else {
-                userMessage = "It is now " + playerNames[currentTurn - 1] + "'s turn."
+                userMessage = "It is " + playerNames[currentTurn - 1] + "'s turn."
             }
             remainingRolls -= 1
         }
@@ -97,6 +98,9 @@ class ViewModel: ObservableObject {
             playerScores[playerID - 1].score[scoreTypeDictionary[scoreType]!] = dicePart.calculateScore(scoreType)
             playerScores[playerID - 1].scoreLocked[scoreTypeDictionary[scoreType]!] = true
             playerScores[playerID - 1].calculateSecondaryScore(scoreType, dicePart)
+            
+            playerScores[playerID - 1].lastPick = scoreTypeToPresentable[scoreType]!
+            playerScores[playerID - 1].lastGainedScore = String(dicePart.calculateScore(scoreType))
         }
     }
     
@@ -104,6 +108,7 @@ class ViewModel: ObservableObject {
         objectWillChange.send()
         dicePart.partialReset()
         remainingRolls = 3
+        userMessage = playerNames[currentTurn - 1] + " picked " + playerScores[currentTurn - 1].lastPick + ", gaining " + playerScores[currentTurn - 1].lastGainedScore
         updateTurnNumber()
         if iterations == 13 {
             gameOver = true
@@ -117,7 +122,7 @@ class ViewModel: ObservableObject {
             }
             currentTurn = 0
         } else {
-            userMessage = "It is now " + playerNames[currentTurn - 1] + "'s turn."
+            //userMessage = "It is now " + playerNames[currentTurn - 1] + "'s turn."
             if isBot[currentTurn] {
                 userMessage = botPlayer!.playTurn()
                 passTurn()
@@ -156,17 +161,25 @@ class ViewModel: ObservableObject {
         switch(destination) {
         case(.home):
             self.gameMode = .home
+            dicePart.reset()
+            resetScore()
         case(.singleplayer):
             self.gameMode = .singleplayer
+            dicePart.reset()
             resetScore()
-            setBotPlayer()
         case(.multiplayer):
             self.gameMode = .multiplayer
+            dicePart.reset()
             resetScore()
+            
             self.playerNames = ["Player 1", "Player 2"]
             self.isBot = [false, false, false]
         case(.settings):
             self.gameMode = .settings
+        case(.testLuck):
+            self.gameMode = .testLuck
+            dicePart.reset()
+            resetScore()
         }
     }
 }

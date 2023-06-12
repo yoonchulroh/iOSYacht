@@ -11,6 +11,9 @@
 		D800C9392A353F0B007C9EBE /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D800C9382A353F0B007C9EBE /* GameView.swift */; };
 		D800C93C2A35401E007C9EBE /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D800C93B2A35401E007C9EBE /* SettingsView.swift */; };
 		D800C93E2A354446007C9EBE /* HomeButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D800C93D2A354446007C9EBE /* HomeButtonView.swift */; };
+		D818B5862A371336000B5961 /* iPadHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D818B5852A371336000B5961 /* iPadHomeView.swift */; };
+		D818B5882A371766000B5961 /* GameModeSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D818B5872A371766000B5961 /* GameModeSelectView.swift */; };
+		D818B58A2A3718BE000B5961 /* iPadGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D818B5892A3718BE000B5961 /* iPadGameView.swift */; };
 		D822C4BB2A1989BF001BD2BA /* Priorities.swift in Sources */ = {isa = PBXBuildFile; fileRef = D822C4BA2A1989BF001BD2BA /* Priorities.swift */; };
 		D822C4C02A198B64001BD2BA /* Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D822C4BF2A198B64001BD2BA /* Actions.swift */; };
 		D822C4C22A199C0F001BD2BA /* DiceEvaluation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D822C4C12A199C0F001BD2BA /* DiceEvaluation.swift */; };
@@ -58,6 +61,9 @@
 		D800C9382A353F0B007C9EBE /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 		D800C93B2A35401E007C9EBE /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		D800C93D2A354446007C9EBE /* HomeButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeButtonView.swift; sourceTree = "<group>"; };
+		D818B5852A371336000B5961 /* iPadHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iPadHomeView.swift; sourceTree = "<group>"; };
+		D818B5872A371766000B5961 /* GameModeSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModeSelectView.swift; sourceTree = "<group>"; };
+		D818B5892A3718BE000B5961 /* iPadGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iPadGameView.swift; sourceTree = "<group>"; };
 		D822C4BA2A1989BF001BD2BA /* Priorities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Priorities.swift; sourceTree = "<group>"; };
 		D822C4BF2A198B64001BD2BA /* Actions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Actions.swift; sourceTree = "<group>"; };
 		D822C4C12A199C0F001BD2BA /* DiceEvaluation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceEvaluation.swift; sourceTree = "<group>"; };
@@ -116,7 +122,9 @@
 			isa = PBXGroup;
 			children = (
 				D800C9362A353EE0007C9EBE /* HomeView.swift */,
+				D818B5852A371336000B5961 /* iPadHomeView.swift */,
 				D800C9382A353F0B007C9EBE /* GameView.swift */,
+				D818B5892A3718BE000B5961 /* iPadGameView.swift */,
 				D800C93B2A35401E007C9EBE /* SettingsView.swift */,
 				D838E7902A35A89D00E403B2 /* TestYourLuckView.swift */,
 			);
@@ -197,6 +205,7 @@
 		D8E353472A17333300E394A8 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				D818B5872A371766000B5961 /* GameModeSelectView.swift */,
 				D800C93D2A354446007C9EBE /* HomeButtonView.swift */,
 				D89E66772A109EF60041C7C7 /* RollButton.swift */,
 				D8E353452A172AA100E394A8 /* MessageView.swift */,
@@ -380,6 +389,7 @@
 				D838E7912A35A89D00E403B2 /* TestYourLuckView.swift in Sources */,
 				D89E66782A109EF60041C7C7 /* RollButton.swift in Sources */,
 				D89E66472A10710D0041C7C7 /* ContentView.swift in Sources */,
+				D818B58A2A3718BE000B5961 /* iPadGameView.swift in Sources */,
 				D8E3534F2A17389B00E394A8 /* BotPlayer.swift in Sources */,
 				D800C93C2A35401E007C9EBE /* SettingsView.swift in Sources */,
 				D89E667C2A10A74E0041C7C7 /* ScoreView.swift in Sources */,
@@ -387,6 +397,7 @@
 				D89E66742A107EAA0041C7C7 /* DiceView.swift in Sources */,
 				D8E3534D2A17385000E394A8 /* DelayTime.swift in Sources */,
 				D800C93E2A354446007C9EBE /* HomeButtonView.swift in Sources */,
+				D818B5862A371336000B5961 /* iPadHomeView.swift in Sources */,
 				D800C9372A353EE0007C9EBE /* HomeView.swift in Sources */,
 				D89E66762A1082650041C7C7 /* DicesFieldView.swift in Sources */,
 				D822C4BB2A1989BF001BD2BA /* Priorities.swift in Sources */,
@@ -395,6 +406,7 @@
 				D822C4C22A199C0F001BD2BA /* DiceEvaluation.swift in Sources */,
 				D89E66722A1078520041C7C7 /* ViewModel.swift in Sources */,
 				D89E66452A10710D0041C7C7 /* YachtApp.swift in Sources */,
+				D818B5882A371766000B5961 /* GameModeSelectView.swift in Sources */,
 				D89E667A2A10A5F20041C7C7 /* ScoreTable.swift in Sources */,
 				D89E667E2A10AEAB0041C7C7 /* CalculateScore.swift in Sources */,
 			);

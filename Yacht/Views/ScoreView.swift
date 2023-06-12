@@ -7,14 +7,18 @@
 
 import SwiftUI
 import Foundation
+import UIKit
 
 struct ScoreView: View {
     @ObservedObject var viewModel: ViewModel
+    var deviceType: String = UIDevice.current.localizedModel
     
     var body: some View {
         HStack {
             ScoreTableLeftLegend()
+                .padding([.leading, .trailing], deviceType == "iPad" ? 20 : 0)
             playerScoreColumn(viewModel: viewModel, playerID: 1)
+                .padding(.trailing, deviceType == "iPad" ? 20 : 0)
             playerScoreColumn(viewModel: viewModel, playerID: 2)
         }
         .padding(.all)
@@ -85,6 +89,7 @@ struct playerScoreColumn: View {
 
 struct ScoreTableGrid: View {
     @Environment(\.colorScheme) var colorScheme
+    var deviceType: String = UIDevice.current.localizedModel
     
     var gridContent: String
     var shape = Rectangle()
@@ -92,15 +97,19 @@ struct ScoreTableGrid: View {
     var body: some View {
         ZStack {
             shape.fill().foregroundColor(colorScheme == .dark ? .black : .white)
-            shape.stroke(lineWidth: 3).foregroundColor(colorScheme == .dark ? .yellow : .blue)
+            shape
+                .stroke(lineWidth: deviceType == "iPad" ? 6 : 3)
+                .foregroundColor(colorScheme == .dark ? .yellow : .blue)
             Text(gridContent)
                 .foregroundColor(colorScheme == .dark ? .white : .black)
+                .font(deviceType == "iPad" ? Font.title2 : Font.body)
         }
     }
 }
 
 struct HighlightedScoreTableGrid: View {
     @Environment(\.colorScheme) var colorScheme
+    var deviceType: String = UIDevice.current.localizedModel
     
     var gridContent: String
     var highlighted: Bool
@@ -110,14 +119,20 @@ struct HighlightedScoreTableGrid: View {
         ZStack {
             if !highlighted {
                 shape.fill().foregroundColor(colorScheme == .dark ? .black : .white)
-                shape.stroke(lineWidth: 3).foregroundColor(colorScheme == .dark ? .yellow : .blue)
+                shape
+                    .stroke(lineWidth: deviceType == "iPad" ? 6 : 3)
+                    .foregroundColor(colorScheme == .dark ? .yellow : .blue)
                 Text(gridContent)
                     .foregroundColor(colorScheme == .dark ? .white : .black)
+                    .font(deviceType == "iPad" ? Font.title2 : Font.body)
             } else {
                 shape.fill().foregroundColor(colorScheme == .dark ? .yellow : .blue)
-                shape.stroke(lineWidth: 3).foregroundColor(colorScheme == .dark ? .yellow : .blue)
+                shape
+                    .stroke(lineWidth: deviceType == "iPad" ? 6 : 3)
+                    .foregroundColor(colorScheme == .dark ? .yellow : .blue)
                 Text(gridContent)
-                    .foregroundColor(colorScheme == .dark ? .black : .white).font(Font.body.weight(.bold))
+                    .foregroundColor(colorScheme == .dark ? .black : .white)
+                    .font(deviceType == "iPad" ? Font.title2.weight(.bold) : Font.body.weight(.bold))
             }
         }
     }
@@ -126,6 +141,7 @@ struct HighlightedScoreTableGrid: View {
 struct InteractiveScoreTableGrid: View {
     @ObservedObject var viewModel: ViewModel
     @Environment(\.colorScheme) var colorScheme
+    var deviceType: String = UIDevice.current.localizedModel
     
     var playerID: Int
     var scoreType: String
@@ -153,17 +169,29 @@ struct InteractiveScoreTableGrid: View {
             if !locked {
                 if self.gridContent == "0" {
                     shape.fill().foregroundColor(colorScheme == .dark ? .black : .white)
-                    shape.stroke(lineWidth: 3).foregroundColor(colorScheme == .dark ? .yellow : .blue)
-                    Text(gridContent).foregroundColor(.gray)
+                    shape
+                        .stroke(lineWidth: deviceType == "iPad" ? 6 : 3)
+                        .foregroundColor(colorScheme == .dark ? .yellow : .blue)
+                    Text(gridContent)
+                        .foregroundColor(.gray)
+                        .font(deviceType == "iPad" ? Font.title2 : Font.body)
                 } else {
                     shape.fill().foregroundColor(colorScheme == .dark ? .yellow : .blue)
-                    shape.stroke(lineWidth: 3).foregroundColor(colorScheme == .dark ? .yellow : .blue)
-                    Text(gridContent).foregroundColor(colorScheme == .dark ? .black : .white).font(Font.body.weight(.bold))
+                    shape
+                        .stroke(lineWidth: deviceType == "iPad" ? 6 : 3)
+                        .foregroundColor(colorScheme == .dark ? .yellow : .blue)
+                    Text(gridContent)
+                        .foregroundColor(colorScheme == .dark ? .black : .white)
+                        .font(deviceType == "iPad" ? Font.title2.weight(.bold) : Font.body.weight(.bold))
                 }
             } else {
                 shape.fill().foregroundColor(colorScheme == .dark ? .black : .white)
-                shape.stroke(lineWidth: 3).foregroundColor(colorScheme == .dark ? .yellow : .blue)
-                Text(gridContent).foregroundColor(colorScheme == .dark ? .white : .black).font(Font.body.weight(.bold))
+                shape
+                    .stroke(lineWidth: deviceType == "iPad" ? 6 : 3)
+                    .foregroundColor(colorScheme == .dark ? .yellow : .blue)
+                Text(gridContent)
+                    .foregroundColor(colorScheme == .dark ? .white : .black)
+                    .font(deviceType == "iPad" ? Font.title2.weight(.bold) : Font.body.weight(.bold))
             }
         }
         .onTapGesture {

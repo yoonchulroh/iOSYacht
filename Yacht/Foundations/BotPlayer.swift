@@ -27,13 +27,13 @@ class BotPlayer: ObservableObject {
         self.checkPickAvailableActions = CheckPickAvailableActions(viewModel: viewModel, playerID: playerID)
     }
     
-    func playTurn() -> String {
-        var _ = playPhase(1)
-        var _ = playPhase(2)
+    func playTurn() {
+        playPhase(1)
+        playPhase(2)
         return playPhase(3)
     }
     
-    func playPhase(_ phase: Int) -> String {
+    func playPhase(_ phase: Int) {
         var diceEvaluationList: [Bool] = []
         var availableIDs: [Int] = []
         var priorityForIDs: [Int] = []
@@ -66,12 +66,9 @@ class BotPlayer: ObservableObject {
         
         if phase < 3 {
             lockActions!.lockByID(ID: topPriorityIDs.randomElement()!)
-            return "Non-pick Phase"
         } else {
             let ID = topPriorityIDs.randomElement()!
             pickActions!.pickByID(ID: ID)
-            
-            return viewModel!.playerNames[playerID - 1] + " picked " + viewModel!.playerScores[playerID - 1].lastPick + ", gaining " + viewModel!.playerScores[playerID - 1].lastGainedScore
         }
     }
 }

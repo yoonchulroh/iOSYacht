@@ -67,7 +67,7 @@ class ViewModel: ObservableObject {
         self.botPlayer = BotPlayer(playerID: botPlayerID, viewModel: self)
         
         if isBot[currentTurn] {
-            userMessage = self.botPlayer!.playTurn()
+            self.botPlayer!.playTurn()
             passTurn()
         }
     }
@@ -124,7 +124,7 @@ class ViewModel: ObservableObject {
         } else {
             //userMessage = "It is now " + playerNames[currentTurn - 1] + "'s turn."
             if isBot[currentTurn] {
-                userMessage = botPlayer!.playTurn()
+                botPlayer!.playTurn()
                 passTurn()
             }
         }

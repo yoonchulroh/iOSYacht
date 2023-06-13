@@ -66,10 +66,13 @@ class ViewModel: ObservableObject {
         
         self.botPlayer = BotPlayer(playerID: botPlayerID, viewModel: self)
         
+        /*
         if isBot[currentTurn] {
             self.botPlayer!.playTurn()
             passTurn()
         }
+         */
+        botPlayer!.waitForTurn()
     }
     
     func roll() {
@@ -123,10 +126,12 @@ class ViewModel: ObservableObject {
             currentTurn = 0
         } else {
             //userMessage = "It is now " + playerNames[currentTurn - 1] + "'s turn."
+            /*
             if isBot[currentTurn] {
                 botPlayer!.playTurn()
                 passTurn()
             }
+             */
         }
     }
     
@@ -151,6 +156,9 @@ class ViewModel: ObservableObject {
         }
         remainingRolls = 3
         userMessage = "Starting the game..."
+        if botPlayer != nil {
+            botPlayer!.active = false
+        }
         if gameMode == .singleplayer {
             setBotPlayer()
         }

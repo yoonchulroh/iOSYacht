@@ -14,10 +14,28 @@ class BotPlayer: ObservableObject {
     var pickActions: PickActions?
     var checkPickAvailableActions: CheckPickAvailableActions?
     var priorities: PriorityList = PriorityList()
+    var active: Bool = true
     
     init(playerID: Int, viewModel: ViewModel) {
         self.playerID = playerID
         setViewModel(viewModel: viewModel)
+    }
+    
+    func waitForTurn() {
+        DispatchQueue.global(qos: .background).async {
+            while self.active {
+                if self.viewModel!.currentTurn == self.playerID {
+                    self.playPhase(1)
+                    usleep(200000)
+                    self.playPhase(2)
+                    usleep(200000)
+                    self.playPhase(3)
+                    usleep(200000)
+                    self.viewModel!.passTurn()
+                }
+                usleep(200000)
+            }
+        }
     }
     
     func setViewModel(viewModel: ViewModel) {

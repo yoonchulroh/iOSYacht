@@ -16,24 +16,50 @@ class BotPlayer: ObservableObject {
     var priorities: PriorityList = PriorityList()
     var active: Bool = true
     
+    var turnCaptured: Bool = false
+    
     init(playerID: Int, viewModel: ViewModel) {
         self.playerID = playerID
         setViewModel(viewModel: viewModel)
     }
     
     func waitForTurn() {
-        DispatchQueue.global(qos: .background).async {
+        var interval: UInt32 = 100000
+        
+        DispatchQueue.global(qos: .userInteractive).async {
             while self.active {
-                if self.viewModel!.currentTurn == self.playerID {
-                    self.playPhase(1)
-                    usleep(200000)
-                    self.playPhase(2)
-                    usleep(200000)
-                    self.playPhase(3)
-                    usleep(200000)
-                    self.viewModel!.passTurn()
+                if self.viewModel!.currentTurn == self.playerID && !self.turnCaptured {
+                    self.turnCaptured = true
+                    DispatchQueue.main.async {
+                        self.viewModel!.roll()
+                    }
+                    usleep(interval)
+                    DispatchQueue.main.async {
+                        self.playPhase(1)
+                    }
+                    usleep(interval)
+                    DispatchQueue.main.async {
+                        self.viewModel!.roll()
+                    }
+                    usleep(interval)
+                    DispatchQueue.main.async {
+                        self.playPhase(2)
+                    }
+                    usleep(interval)
+                    DispatchQueue.main.async {
+                        self.viewModel!.roll()
+                    }
+                    usleep(interval)
+                    DispatchQueue.main.async {
+                        self.playPhase(3)
+                    }
+                    usleep(interval)
+                    DispatchQueue.main.async {
+                        self.viewModel!.passTurn()
+                    }
+                    self.turnCaptured = false
                 }
-                usleep(200000)
+                usleep(interval*10)
             }
         }
     }
@@ -57,8 +83,6 @@ class BotPlayer: ObservableObject {
         var priorityForIDs: [Int] = []
         var topPriorityIDs: [Int] = []
         var topPriority: Int
-        
-        viewModel!.roll()
 
         diceEvaluationList = DiceEvaluationList().toListConverter(evaluationTable: DiceEvaluationTable(diceData: viewModel!.dicePart))
         for i in 0 ... 398 {

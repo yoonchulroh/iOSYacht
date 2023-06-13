@@ -29,6 +29,7 @@ struct iPadGameView: View {
                 Spacer()
                 MessageView(viewModel: viewModel)
                     .font(Font.title.weight(.bold)).padding(.bottom)
+                    .frame(height: deviceHeight / 5)
                 DicesFieldView(viewModel: viewModel)
                 Spacer()
                 RollButton(viewModel: viewModel)

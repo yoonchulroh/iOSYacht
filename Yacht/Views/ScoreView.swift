@@ -16,10 +16,11 @@ struct ScoreView: View {
     var body: some View {
         HStack {
             ScoreTableLeftLegend()
-                .padding([.leading, .trailing], deviceType == "iPad" ? 20 : 0)
+                .padding(.trailing, deviceType == "iPad" ? 10 : 0)
             playerScoreColumn(viewModel: viewModel, playerID: 1)
-                .padding(.trailing, deviceType == "iPad" ? 20 : 0)
+                .padding(.trailing, deviceType == "iPad" ? 10 : 0)
             playerScoreColumn(viewModel: viewModel, playerID: 2)
+                .padding(.trailing, deviceType == "iPad" ? 10 : 0)
         }
         .padding(.all)
     }

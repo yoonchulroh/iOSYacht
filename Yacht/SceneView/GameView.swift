@@ -19,7 +19,7 @@ struct GameView: View {
             VStack {
                 HStack {
                     HomeButtonView(viewModel: viewModel).padding(.leading)
-                    Spacer()
+                    ProbabilitySimulationView(viewModel: viewModel)
                     RefreshButtonView(viewModel: viewModel).padding(.trailing)
                 }
                 ScoreView(viewModel: viewModel)

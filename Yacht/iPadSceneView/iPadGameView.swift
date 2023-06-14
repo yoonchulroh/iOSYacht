@@ -22,7 +22,7 @@ struct iPadGameView: View {
             VStack {
                 HStack {
                     HomeButtonView(viewModel: viewModel).padding(.leading)
-                    Spacer()
+                    ProbabilitySimulationView(viewModel: viewModel)
                     RefreshButtonView(viewModel: viewModel).padding(.trailing)
                 }
                 .frame(height: deviceHeight / 15)

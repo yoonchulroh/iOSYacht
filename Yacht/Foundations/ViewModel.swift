@@ -15,7 +15,7 @@ enum GameMode {
     case testLuck
 }
 
-class ViewModel: ObservableObject {
+class ViewModel: ObservableObject, NSCopying {
     
     @Published private(set) var gameMode: GameMode
     
@@ -33,6 +33,11 @@ class ViewModel: ObservableObject {
     @Published private(set) var playerScores: [ScoreTable]
     
     @Published private(set) var botPlayer: BotPlayer?
+    @Published private(set) var secondBotPlayer: BotPlayer?
+    
+    @Published private(set) var simulatedWinCount: [Int] = []
+    @Published private(set) var winProbabilityPredictor: WinProbabilityPredictor?
+    @Published var newEvent: Bool
     
     init() {
         gameMode = .home
@@ -50,8 +55,38 @@ class ViewModel: ObservableObject {
         self.isBot = [false, false, false]
         playerScores = []
         
+        simulatedWinCount = [0,0,0]
+        newEvent = false
+        
         playerScores.append(ScoreTable())
         playerScores.append(ScoreTable())
+    }
+    
+    func copy(with zone: NSZone? = nil) -> Any {
+        let copiedViewModel = ViewModel()
+        
+        copiedViewModel.gameMode = self.gameMode
+        
+        copiedViewModel.currentTurn = self.currentTurn
+        copiedViewModel.iterations = self.iterations
+        copiedViewModel.remainingRolls = self.remainingRolls
+        copiedViewModel.gameOver = self.gameOver
+        
+        copiedViewModel.playerNames = self.playerNames
+        copiedViewModel.isBot = self.isBot
+        
+        var tempPlayerScores: ScoreTable
+        for item in self.playerScores {
+            tempPlayerScores = item.copy() as! ScoreTable
+            copiedViewModel.playerScores.append(tempPlayerScores)
+        }
+        
+        copiedViewModel.botPlayer = BotPlayer(playerID: 1, viewModel: copiedViewModel)
+        copiedViewModel.secondBotPlayer = BotPlayer(playerID: 2, viewModel: copiedViewModel)
+        
+        copiedViewModel.simulatedWinCount = self.simulatedWinCount
+        
+        return copiedViewModel
     }
     
     func setBotPlayer() {
@@ -73,6 +108,18 @@ class ViewModel: ObservableObject {
         }
          */
         botPlayer!.waitForTurn()
+    }
+    
+    func setWinProbabilityPredictor() {
+        self.winProbabilityPredictor = WinProbabilityPredictor(viewModel: self)
+        self.winProbabilityPredictor!.runInTheBackground()
+    }
+    
+    func setBotPlayerAllForSimulation() {
+        self.isBot = [false, true, true]
+        
+        self.botPlayer = BotPlayer(playerID: 1, viewModel: self)
+        self.secondBotPlayer = BotPlayer(playerID: 2, viewModel: self)
     }
     
     func roll() {
@@ -104,6 +151,8 @@ class ViewModel: ObservableObject {
             
             playerScores[playerID - 1].lastPick = scoreTypeToPresentable[scoreType]!
             playerScores[playerID - 1].lastGainedScore = String(dicePart.calculateScore(scoreType))
+            
+            newEvent = true
         }
     }
     
@@ -159,9 +208,13 @@ class ViewModel: ObservableObject {
         if botPlayer != nil {
             botPlayer!.active = false
         }
+        if winProbabilityPredictor != nil {
+            winProbabilityPredictor!.active = false
+        }
         if gameMode == .singleplayer {
             setBotPlayer()
         }
+        setWinProbabilityPredictor()
     }
     
     func switchGameMode(destination: GameMode) {
@@ -188,6 +241,15 @@ class ViewModel: ObservableObject {
             self.gameMode = .testLuck
             dicePart.reset()
             resetScore()
+        }
+    }
+    
+    func updateSimulatedWinCount (playerID: Int) {
+        objectWillChange.send()
+        if playerID == -1 {
+            self.simulatedWinCount = [0,0,0]
+        } else {
+            self.simulatedWinCount[playerID] += 1
         }
     }
 }

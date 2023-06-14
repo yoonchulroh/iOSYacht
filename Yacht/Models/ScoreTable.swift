@@ -7,12 +7,14 @@
 
 import Foundation
 
-class ScoreTable {
+class ScoreTable : NSCopying {
     var score: [Int] = []
     var scoreLocked: [Bool] = []
     
     var lastPick: String = ""
     var lastGainedScore: String = ""
+    
+    var totalScore = 0
     
     init() {
         for _ in 1 ... 13 {
@@ -21,7 +23,19 @@ class ScoreTable {
         }
     }
     
-    var totalScore = 0
+    func copy(with zone: NSZone? = nil) -> Any {
+        let copiedScoreTable = ScoreTable()
+        
+        copiedScoreTable.score = self.score
+        copiedScoreTable.scoreLocked = self.scoreLocked
+        
+        copiedScoreTable.lastPick = self.lastPick
+        copiedScoreTable.lastGainedScore = self.lastGainedScore
+        
+        copiedScoreTable.totalScore = self.totalScore
+        
+        return copiedScoreTable
+    }
     
     func calculateSecondaryScore(_ scoreType: String, _ dicePart: DiceField) {
         var numberScoreTotal = 0

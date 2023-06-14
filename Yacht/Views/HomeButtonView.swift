@@ -40,7 +40,9 @@ struct RefreshButtonView: View {
             .foregroundColor(colorScheme == .dark ? .white : .black)
             .frame(width: deviceHeight / 60, height: deviceHeight / 60)
             .onTapGesture {
-                viewModel.resetScore()
+                if !viewModel.isBot[viewModel.currentTurn] {
+                    viewModel.resetScore()
+                }
             }
     }
 }

@@ -24,7 +24,7 @@ class BotPlayer: ObservableObject {
     }
     
     func waitForTurn() {
-        var interval: UInt32 = 100000
+        let interval: UInt32 = 50000
         
         DispatchQueue.global(qos: .userInteractive).async {
             while self.active {

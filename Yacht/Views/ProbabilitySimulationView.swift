@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 struct ProbabilitySimulationView: View {
-    var viewModel: ViewModel
+    @ObservedObject var viewModel: ViewModel
     
     var body: some View {
         HStack {

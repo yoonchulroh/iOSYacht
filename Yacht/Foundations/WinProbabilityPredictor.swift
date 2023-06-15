@@ -50,7 +50,7 @@ class WinProbabilityPredictor {
     }
     
     func runInTheBackground() {
-        let interval: UInt32 = 10000
+        let interval: UInt32 = 100000
         DispatchQueue.global(qos: .background).async {
             while self.active {
                 DispatchQueue.main.async {

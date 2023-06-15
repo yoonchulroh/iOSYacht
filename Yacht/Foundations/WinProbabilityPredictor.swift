@@ -21,14 +21,14 @@ class WinProbabilityPredictor {
         
         self.originalViewModel = viewModel
         
-        self.simulationViewModelOriginal = viewModel.copy() as! ViewModel
+        self.simulationViewModelOriginal = viewModel.copy()
         self.simulationViewModelOriginal.setBotPlayerAllForSimulation()
         
-        self.simulationViewModelInstance = self.simulationViewModelOriginal.copy() as! ViewModel
+        self.simulationViewModelInstance = self.simulationViewModelOriginal.copy()
     }
     
     func monteCarloGame() {
-        self.simulationViewModelInstance = self.simulationViewModelOriginal.copy() as! ViewModel
+        self.simulationViewModelInstance = self.simulationViewModelOriginal.copy()
         
         while(!self.simulationViewModelInstance.gameOver) {
             if self.simulationViewModelInstance.currentTurn == 1 {
@@ -55,6 +55,7 @@ class WinProbabilityPredictor {
             while self.active {
                 DispatchQueue.main.async {
                     if self.originalViewModel.newEvent {
+                        self.simulationViewModelOriginal = self.originalViewModel.copy()
                         self.originalViewModel.updateSimulatedWinCount(playerID: -1)
                         self.originalViewModel.newEvent = false
                     }

@@ -7,7 +7,7 @@
 
 import Foundation
 
-class ScoreTable : NSCopying {
+class ScoreTable {
     var score: [Int] = []
     var scoreLocked: [Bool] = []
     
@@ -23,7 +23,7 @@ class ScoreTable : NSCopying {
         }
     }
     
-    func copy(with zone: NSZone? = nil) -> Any {
+    func copy() -> ScoreTable {
         let copiedScoreTable = ScoreTable()
         
         copiedScoreTable.score = self.score

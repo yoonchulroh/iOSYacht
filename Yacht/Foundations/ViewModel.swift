@@ -15,7 +15,7 @@ enum GameMode {
     case testLuck
 }
 
-class ViewModel: ObservableObject, NSCopying {
+class ViewModel: ObservableObject {
     
     @Published private(set) var gameMode: GameMode
     
@@ -62,7 +62,7 @@ class ViewModel: ObservableObject, NSCopying {
         playerScores.append(ScoreTable())
     }
     
-    func copy(with zone: NSZone? = nil) -> Any {
+    func copy() -> ViewModel {
         let copiedViewModel = ViewModel()
         
         copiedViewModel.gameMode = self.gameMode
@@ -75,11 +75,8 @@ class ViewModel: ObservableObject, NSCopying {
         copiedViewModel.playerNames = self.playerNames
         copiedViewModel.isBot = self.isBot
         
-        var tempPlayerScores: ScoreTable
-        for item in self.playerScores {
-            tempPlayerScores = item.copy() as! ScoreTable
-            copiedViewModel.playerScores.append(tempPlayerScores)
-        }
+        copiedViewModel.playerScores[0] = self.playerScores[0].copy()
+        copiedViewModel.playerScores[1] = self.playerScores[1].copy()
         
         copiedViewModel.botPlayer = BotPlayer(playerID: 1, viewModel: copiedViewModel)
         copiedViewModel.secondBotPlayer = BotPlayer(playerID: 2, viewModel: copiedViewModel)

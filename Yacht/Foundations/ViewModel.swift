@@ -39,6 +39,8 @@ class ViewModel: ObservableObject {
     @Published private(set) var winProbabilityPredictor: WinProbabilityPredictor?
     @Published var newEvent: Bool
     
+    var isInPredictor: Bool = false
+    
     init() {
         gameMode = .home
         
@@ -83,6 +85,8 @@ class ViewModel: ObservableObject {
         
         copiedViewModel.simulatedWinCount = self.simulatedWinCount
         
+        copiedViewModel.isInPredictor = true
+        
         return copiedViewModel
     }
     
@@ -109,6 +113,7 @@ class ViewModel: ObservableObject {
     
     func setWinProbabilityPredictor() {
         self.winProbabilityPredictor = WinProbabilityPredictor(viewModel: self)
+        updateSimulatedWinCount(playerID: -1)
         self.winProbabilityPredictor!.runInTheBackground()
     }
     
@@ -148,8 +153,6 @@ class ViewModel: ObservableObject {
             
             playerScores[playerID - 1].lastPick = scoreTypeToPresentable[scoreType]!
             playerScores[playerID - 1].lastGainedScore = String(dicePart.calculateScore(scoreType))
-            
-            newEvent = true
         }
     }
     
@@ -170,15 +173,8 @@ class ViewModel: ObservableObject {
                 userMessage = "Draw!"
             }
             currentTurn = 0
-        } else {
-            //userMessage = "It is now " + playerNames[currentTurn - 1] + "'s turn."
-            /*
-            if isBot[currentTurn] {
-                botPlayer!.playTurn()
-                passTurn()
-            }
-             */
         }
+        newEvent = true
     }
     
     func updateTurnNumber() {

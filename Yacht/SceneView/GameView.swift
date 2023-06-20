@@ -18,10 +18,12 @@ struct GameView: View {
         } else {
             VStack {
                 HStack {
-                    HomeButtonView(viewModel: viewModel).padding(.leading)
-                    ProbabilitySimulationView(viewModel: viewModel)
-                    RefreshButtonView(viewModel: viewModel).padding(.trailing)
+                    HomeButtonView(viewModel: viewModel).padding([.leading, .trailing])
+                    ProbabilitySimulationView(viewModel: viewModel, assignedWidth: UIScreen.main.bounds.width * 2 / 3)
+                        .frame(width: UIScreen.main.bounds.width * 2 / 3)
+                    RefreshButtonView(viewModel: viewModel).padding([.leading, .trailing])
                 }
+                .padding(.top)
                 ScoreView(viewModel: viewModel)
                 MessageView(viewModel: viewModel)
                 DicesFieldView(viewModel: viewModel)

@@ -21,11 +21,13 @@ struct iPadGameView: View {
                 .frame(width: deviceWidth * 2 / 3)
             VStack {
                 HStack {
-                    HomeButtonView(viewModel: viewModel).padding(.leading)
-                    ProbabilitySimulationView(viewModel: viewModel)
-                    RefreshButtonView(viewModel: viewModel).padding(.trailing)
+                    HomeButtonView(viewModel: viewModel).padding([.leading, .trailing])
+                    ProbabilitySimulationView(viewModel: viewModel, assignedWidth: deviceWidth / 4)
+                        .frame(width: deviceWidth / 4)
+                    RefreshButtonView(viewModel: viewModel).padding([.leading, .trailing])
                 }
                 .frame(height: deviceHeight / 15)
+                .padding(.top)
                 Spacer()
                 MessageView(viewModel: viewModel)
                     .font(Font.title.weight(.bold)).padding(.bottom)

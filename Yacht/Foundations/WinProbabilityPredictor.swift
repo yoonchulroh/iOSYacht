@@ -52,7 +52,7 @@ class WinProbabilityPredictor {
     func runInTheBackground() {
         let interval: UInt32 = 100000
         DispatchQueue.global(qos: .background).async {
-            while self.active {
+            while self.active && !self.originalViewModel.gameOver && self.originalViewModel.gameMode != .home {
                 DispatchQueue.main.async {
                     if self.originalViewModel.newEvent {
                         self.simulationViewModelOriginal = self.originalViewModel.copy()

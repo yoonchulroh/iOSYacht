@@ -20,6 +20,7 @@
 		D822C4C02A198B64001BD2BA /* Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D822C4BF2A198B64001BD2BA /* Actions.swift */; };
 		D822C4C22A199C0F001BD2BA /* DiceEvaluation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D822C4C12A199C0F001BD2BA /* DiceEvaluation.swift */; };
 		D838E7912A35A89D00E403B2 /* TestYourLuckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D838E7902A35A89D00E403B2 /* TestYourLuckView.swift */; };
+		D86138CA2A42D502008665E8 /* ContinueGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86138C92A42D502008665E8 /* ContinueGameView.swift */; };
 		D89E66452A10710D0041C7C7 /* YachtApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D89E66442A10710D0041C7C7 /* YachtApp.swift */; };
 		D89E66472A10710D0041C7C7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D89E66462A10710D0041C7C7 /* ContentView.swift */; };
 		D89E66492A10710E0041C7C7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D89E66482A10710E0041C7C7 /* Assets.xcassets */; };
@@ -72,6 +73,7 @@
 		D822C4BF2A198B64001BD2BA /* Actions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Actions.swift; sourceTree = "<group>"; };
 		D822C4C12A199C0F001BD2BA /* DiceEvaluation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceEvaluation.swift; sourceTree = "<group>"; };
 		D838E7902A35A89D00E403B2 /* TestYourLuckView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestYourLuckView.swift; sourceTree = "<group>"; };
+		D86138C92A42D502008665E8 /* ContinueGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinueGameView.swift; sourceTree = "<group>"; };
 		D89E66412A10710D0041C7C7 /* Yacht.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Yacht.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D89E66442A10710D0041C7C7 /* YachtApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YachtApp.swift; sourceTree = "<group>"; };
 		D89E66462A10710D0041C7C7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -218,6 +220,7 @@
 			isa = PBXGroup;
 			children = (
 				D818B5872A371766000B5961 /* GameModeSelectView.swift */,
+				D86138C92A42D502008665E8 /* ContinueGameView.swift */,
 				D800C93D2A354446007C9EBE /* HomeButtonView.swift */,
 				D80920C02A39E1EA00C8C6F6 /* ProbabilitySimulationView.swift */,
 				D89E667B2A10A74E0041C7C7 /* ScoreView.swift */,
@@ -409,6 +412,7 @@
 				D800C93C2A35401E007C9EBE /* SettingsView.swift in Sources */,
 				D89E667C2A10A74E0041C7C7 /* ScoreView.swift in Sources */,
 				D822C4C02A198B64001BD2BA /* Actions.swift in Sources */,
+				D86138CA2A42D502008665E8 /* ContinueGameView.swift in Sources */,
 				D89E66742A107EAA0041C7C7 /* DiceView.swift in Sources */,
 				D8E3534D2A17385000E394A8 /* DelayTime.swift in Sources */,
 				D800C93E2A354446007C9EBE /* HomeButtonView.swift in Sources */,

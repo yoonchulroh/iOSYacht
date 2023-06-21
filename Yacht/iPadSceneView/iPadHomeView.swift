@@ -32,7 +32,9 @@ struct iPadHomeView: View {
             Spacer()
             
             VStack {
-                GameModeSelectView(viewModel: viewModel, buttonColor: .green, buttonContent: "Sandbox", destination: .testLuck)
+                //GameModeSelectView(viewModel: viewModel, buttonColor: .green, buttonContent: "Sandbox", destination: .testLuck)
+                
+                ContinueGameView(viewModel: viewModel)
                 
                 GameModeSelectView(viewModel: viewModel, buttonColor: .blue, buttonContent: "Singleplayer", destination: .singleplayer)
                 

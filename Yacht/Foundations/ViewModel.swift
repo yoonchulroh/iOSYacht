@@ -7,12 +7,12 @@
 
 import Foundation
 
-enum GameMode {
-    case home
-    case singleplayer
-    case multiplayer
-    case settings
-    case testLuck
+enum GameMode: Int {
+    case home = 1
+    case singleplayer = 2
+    case multiplayer = 3
+    case settings = 4
+    case testLuck = 5
 }
 
 class ViewModel: ObservableObject {
@@ -85,9 +85,81 @@ class ViewModel: ObservableObject {
         
         copiedViewModel.simulatedWinCount = self.simulatedWinCount
         
-        copiedViewModel.isInPredictor = true
-        
         return copiedViewModel
+    }
+    
+    func saveCurrentGame() {
+        UserDefaults.standard.set(true, forKey: "saveGameExists")
+        
+        UserDefaults.standard.set(self.gameMode.rawValue, forKey: "gameMode")
+        
+        UserDefaults.standard.set(self.iterations, forKey: "iterations")
+        UserDefaults.standard.set(self.currentTurn, forKey: "currentTurn")
+        UserDefaults.standard.set(self.remainingRolls, forKey: "remainingRolls")
+        UserDefaults.standard.set(self.gameOver, forKey: "gameOver")
+        
+        var diceFaces: [Int] = []
+        for dice in dicePart.dices {
+            diceFaces.append(dice.diceFace)
+        }
+        UserDefaults.standard.set(diceFaces, forKey: "diceFaces")
+        UserDefaults.standard.set(self.userMessage, forKey: "userMessage")
+        
+        UserDefaults.standard.set(self.playerCount, forKey: "playerCount")
+        UserDefaults.standard.set(self.playerNames, forKey: "playerNames")
+        UserDefaults.standard.set(self.isBot, forKey: "isBot")
+        
+        var playerScores: [[Int]] = []
+        var playerScoresLocked: [[Bool]] = []
+        var totalScores: [Int] = []
+        for item in self.playerScores {
+            playerScores.append(item.score)
+            playerScoresLocked.append(item.scoreLocked)
+            totalScores.append(item.totalScore)
+        }
+        UserDefaults.standard.set(playerScores, forKey: "playerScores")
+        UserDefaults.standard.set(playerScoresLocked, forKey: "playerScoresLocked")
+        UserDefaults.standard.set(totalScores, forKey: "totalScores")
+    }
+    
+    func restoreGame() {
+        if UserDefaults.standard.bool(forKey: "saveGameExists") {
+            self.gameMode = GameMode(rawValue: UserDefaults.standard.integer(forKey: "gameMode")) ?? GameMode(rawValue: 1)!
+            
+            self.iterations = UserDefaults.standard.integer(forKey: "iterations")
+            self.currentTurn = UserDefaults.standard.integer(forKey: "currentTurn")
+            self.remainingRolls = UserDefaults.standard.integer(forKey: "remainingRolls")
+            self.gameOver = UserDefaults.standard.bool(forKey: "gameOver")
+            
+            for i in 0 ... 4 {
+                self.dicePart.dices[i].diceFace = UserDefaults.standard.array(forKey: "diceFaces")![i] as! Int
+            }
+            self.userMessage = UserDefaults.standard.string(forKey: "userMessage") ?? "restore game error"
+            self.playerNames = UserDefaults.standard.array(forKey: "playerNames")! as! [String]
+            self.isBot = UserDefaults.standard.array(forKey: "isBot") as! [Bool]
+            
+            assert(self.playerCount == UserDefaults.standard.integer(forKey: "playerCount"))
+            for i in 0 ... playerScores.count - 1 {
+                self.playerScores[i].score = UserDefaults.standard.array(forKey: "playerScores")![i] as! [Int]
+                self.playerScores[i].scoreLocked = UserDefaults.standard.array(forKey: "playerScoresLocked")![i] as! [Bool]
+                self.playerScores[i].totalScore = UserDefaults.standard.array(forKey: "totalScores")![i] as! Int
+                
+            }
+            
+            if botPlayer != nil {
+                botPlayer!.active = false
+            }
+            if winProbabilityPredictor != nil {
+                winProbabilityPredictor!.active = false
+            }
+            
+            for i in 1 ... playerCount {
+                if isBot[i] {
+                    self.botPlayer = BotPlayer(playerID: i, viewModel: self)
+                }
+            }
+            setWinProbabilityPredictor()
+        }
     }
     
     func setBotPlayer() {
@@ -210,7 +282,7 @@ class ViewModel: ObservableObject {
         setWinProbabilityPredictor()
     }
     
-    func switchGameMode(destination: GameMode) {
+    func switchGameMode(destination: GameMode, loadPreviousGame: Bool = false) {
         objectWillChange.send()
         switch(destination) {
         case(.home):
@@ -219,12 +291,20 @@ class ViewModel: ObservableObject {
             resetScore()
         case(.singleplayer):
             self.gameMode = .singleplayer
-            dicePart.reset()
-            resetScore()
+            if loadPreviousGame {
+                restoreGame()
+            } else {
+                dicePart.reset()
+                resetScore()
+            }
         case(.multiplayer):
             self.gameMode = .multiplayer
-            dicePart.reset()
-            resetScore()
+            if loadPreviousGame {
+                restoreGame()
+            } else {
+                dicePart.reset()
+                resetScore()
+            }
             
             self.playerNames = ["Player 1", "Player 2"]
             self.isBot = [false, false, false]

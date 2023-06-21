@@ -199,6 +199,7 @@ struct InteractiveScoreTableGrid: View {
             if viewModel.currentTurn == playerID && !viewModel.isBot[playerID] && viewModel.remainingRolls < 3 && viewModel.playerScores[playerID - 1].scoreLocked[scoreTypeDictionary[scoreType]!] == false {
                 viewModel.addToScore(scoreType, playerID)
                 viewModel.passTurn()
+                viewModel.saveCurrentGame()
             }
         }
     }

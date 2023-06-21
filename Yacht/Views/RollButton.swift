@@ -39,11 +39,14 @@ struct RollButton: View {
         .onTapGesture {
             if viewModel.gameOver {
                 viewModel.resetScore()
+                viewModel.saveCurrentGame()
             } else {
                 if viewModel.remainingRolls > 0 && !viewModel.isBot[viewModel.currentTurn] {
                     viewModel.roll()
-                } else if isHome && viewModel.remainingRolls == 0{
+                    viewModel.saveCurrentGame()
+                } else if isHome && viewModel.remainingRolls == 0 {
                     viewModel.resetScore()
+                    viewModel.saveCurrentGame()
                 }
             }
         }

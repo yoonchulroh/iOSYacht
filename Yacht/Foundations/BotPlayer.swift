@@ -77,7 +77,7 @@ class BotPlayer: ObservableObject {
         self.viewModel!.roll()
         playPhase(2)
         self.viewModel!.roll()
-        return playPhase(3)
+        playPhase(3)
     }
     
     func playPhase(_ phase: Int) {

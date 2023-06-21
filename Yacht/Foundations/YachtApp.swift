@@ -12,7 +12,7 @@ struct YachtApp: App {
     let game: ViewModel
     
     init() {
-        game = ViewModel()
+        game = ViewModel(mainViewModel: true)
     }
     
     var body: some Scene {

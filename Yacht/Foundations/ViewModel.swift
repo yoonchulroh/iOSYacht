@@ -40,8 +40,9 @@ class ViewModel: ObservableObject {
     @Published var newEvent: Bool
     
     var isInPredictor: Bool = false
+    var mainViewModel: Bool
     
-    init() {
+    init(mainViewModel: Bool = false) {
         gameMode = .home
         
         currentTurn = 1
@@ -59,6 +60,7 @@ class ViewModel: ObservableObject {
         
         simulatedWinCount = [0,0,0]
         newEvent = false
+        self.mainViewModel = mainViewModel
         
         playerScores.append(ScoreTable())
         playerScores.append(ScoreTable())
@@ -156,6 +158,7 @@ class ViewModel: ObservableObject {
             for i in 1 ... playerCount {
                 if isBot[i] {
                     self.botPlayer = BotPlayer(playerID: i, viewModel: self)
+                    self.botPlayer!.waitForTurn()
                 }
             }
             setWinProbabilityPredictor()
@@ -207,6 +210,9 @@ class ViewModel: ObservableObject {
             }
             remainingRolls -= 1
         }
+        if mainViewModel {
+            saveCurrentGame()
+        }
     }
     
     func lockToggle(_ diceIndex: Int) {
@@ -247,6 +253,9 @@ class ViewModel: ObservableObject {
             currentTurn = 0
         }
         newEvent = true
+        if mainViewModel {
+            saveCurrentGame()
+        }
     }
     
     func updateTurnNumber() {

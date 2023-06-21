@@ -82,7 +82,7 @@ struct playerScoreColumn: View {
                     InteractiveScoreTableGrid(viewModel: viewModel, playerID: playerID, scoreType: scoreType)
                 }
                 
-                HighlightedScoreTableGrid(gridContent: String(viewModel.playerScores[playerID - 1].totalScore), highlighted: viewModel.playerScores[2-playerID].totalScore < viewModel.playerScores[playerID - 1].totalScore)
+                HighlightedScoreTableGrid(gridContent: String(viewModel.playerScores[playerID - 1].totalScore), highlighted: playerID == viewModel.decideWinner())
             }
         }
     }

@@ -243,10 +243,8 @@ class ViewModel: ObservableObject {
         if iterations == 13 {
             gameOver = true
             dicePart.reset()
-            if playerScores[0].totalScore > playerScores[1].totalScore {
-                userMessage = playerNames[0] + " Wins!"
-            } else if playerScores[1].totalScore > playerScores[0].totalScore {
-                userMessage = playerNames[1] + " Wins!"
+            if decideWinner() > 0 {
+                userMessage = playerNames[decideWinner() - 1] + " Wins!"
             } else {
                 userMessage = "Draw!"
             }
@@ -263,6 +261,23 @@ class ViewModel: ObservableObject {
         if currentTurn > playerCount {
             iterations += 1
             currentTurn = 1
+        }
+    }
+    
+    func decideWinner() -> Int {
+        var winner: [Int] = [1]
+        for i in 2 ... playerCount {
+            if playerScores[i - 1].totalScore > playerScores[winner[0] - 1].totalScore {
+                winner = [i]
+            } else if playerScores[i - 1].totalScore == playerScores[winner[0] - 1].totalScore {
+                winner.append(i)
+            }
+        }
+        print(winner)
+        if winner.count > 1 {
+            return 0
+        } else {
+            return winner[0]
         }
     }
     

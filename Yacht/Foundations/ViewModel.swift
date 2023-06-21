@@ -273,7 +273,6 @@ class ViewModel: ObservableObject {
                 winner.append(i)
             }
         }
-        print(winner)
         if winner.count > 1 {
             return 0
         } else {
